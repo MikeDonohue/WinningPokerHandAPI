@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WinningPokerHandAPI.Models;
+using WinningPokerHandAPI.DataObjects.Dtos;
 using WinningPokerHandAPI.Services;
 
 namespace WinningPokerHandAPI.Controllers
 {
     [ApiController]
-    [Route("pokerhand")]
+    [Route("pokerhands")]
     public class PokerHandsController : ControllerBase
     {
         private readonly IPokerHandsService _pokerHandsService;
@@ -22,7 +19,7 @@ namespace WinningPokerHandAPI.Controllers
         }
 
 
-        [HttpGet("{handId}")]
+        [HttpGet("{handId}", Name = "GetPokerHand")]
         public IActionResult GetPokerHand(Guid pokerHandId)
         {
             var savedHand = _pokerHandsService.GetPokerHand(pokerHandId);
@@ -36,16 +33,14 @@ namespace WinningPokerHandAPI.Controllers
         }
 
         [HttpPost(Name = "CreateHand")]
-        public ActionResult<PokerHandDto> CreatePokerHand(PokerHandDto pokerHandDto)
+        public ActionResult<PokerHandDto> CreatePokerHand(PokerHandForCreationDto pokerHandDto)
         {
+            var pokerHandCreated = _pokerHandsService.AddPokerHand(pokerHandDto);
 
-            var savedHand = _pokerHandsService.CreatePokerHand(pokerHandDto);
-
-            //placeholder return code
-            return Ok(savedHand);
+            return CreatedAtRoute("GetPokerHand",
+                new { authorId = pokerHandCreated.Id },
+                pokerHandCreated);
         }
-
-
 
         [HttpOptions]
         public IActionResult GetPokerHandOptions()
