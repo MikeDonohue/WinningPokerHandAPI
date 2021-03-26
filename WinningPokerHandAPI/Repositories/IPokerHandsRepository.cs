@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WinningPokerHandAPI.Models;
+using WinningPokerHandAPI.DataObjects;
+using WinningPokerHandAPI.DataObjects.Entities;
 
 namespace WinningPokerHandAPI.Repositories
 {
     public interface IPokerHandsRepository
     {
-        public string GetPokerHand(Guid pokerHandDto);
+        public PokerHand AddPokerHand(PokerHand pokerHand);
+        public PokerHand GetPokerHand(Guid pokerHandId);
+        public bool Save();
 
     }
 }
