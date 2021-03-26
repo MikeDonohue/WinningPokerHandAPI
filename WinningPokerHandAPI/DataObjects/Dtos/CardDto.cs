@@ -1,6 +1,6 @@
 using System;
 
-namespace WinningPokerHandAPI.Models
+namespace WinningPokerHandAPI.DataObjects.Dtos
 {
     public class CardDto
     {
