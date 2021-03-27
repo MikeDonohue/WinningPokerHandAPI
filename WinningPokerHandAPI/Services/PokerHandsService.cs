@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Poker.API.DataObjects.Dtos;
 using Poker.API.DataObjects.Entities;
 using Poker.API.Repositories;
+using Poker.API.Helpers;
 
 namespace Poker.API.Services
 {
@@ -13,6 +14,7 @@ namespace Poker.API.Services
     {
         private readonly IPokerHandsRepository _pokerHandsRepository;
         private readonly IMapper _mapper;
+        private readonly HandTypeCalculator _handTypeCalculator;
 
         public PokerHandsService(IPokerHandsRepository pokerHandsRepository,
            IMapper mapper)
@@ -21,15 +23,15 @@ namespace Poker.API.Services
                 throw new ArgumentNullException(nameof(pokerHandsRepository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
+            _handTypeCalculator = new HandTypeCalculator();
         }
 
         PokerHand IPokerHandsService.AddPokerHand(PokerHandForCreationDto pokerHandDto)
         {
             var pokerHandToAdd = _mapper.Map<PokerHand>(pokerHandDto);
             //Add call to determine card type
-            pokerHandToAdd.Type = "Flush";
+            pokerHandToAdd.Type = _handTypeCalculator.GetHandType(pokerHandToAdd).Name;
             _pokerHandsRepository.AddPokerHand(pokerHandToAdd);
-            _pokerHandsRepository.Save();
             return pokerHandToAdd;
         }
 

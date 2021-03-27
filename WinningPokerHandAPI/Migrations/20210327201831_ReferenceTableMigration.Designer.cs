@@ -10,7 +10,7 @@ using Poker.API.DbContexts;
 namespace Poker.API.Migrations
 {
     [DbContext(typeof(PokerHandsContext))]
-    [Migration("20210327022514_ReferenceTableMigration")]
+    [Migration("20210327201831_ReferenceTableMigration")]
     partial class ReferenceTableMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,28 +29,23 @@ namespace Poker.API.Migrations
 
                     b.Property<string>("Card1")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Card2")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Card3")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Card4")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Card5")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTimeOffset>("DateCreated")
                         .HasColumnType("datetimeoffset");
@@ -76,7 +71,7 @@ namespace Poker.API.Migrations
                             Card3 = "AD",
                             Card4 = "AC",
                             Card5 = "2H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 26, 22, 25, 14, 356, DateTimeKind.Unspecified).AddTicks(2246), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 27, 16, 18, 31, 372, DateTimeKind.Unspecified).AddTicks(1403), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Berry",
                             Type = "4kind"
                         });

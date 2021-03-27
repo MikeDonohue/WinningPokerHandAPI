@@ -98,7 +98,7 @@ namespace Poker.API.Helpers
 
             //check for two pair
             var pairs = repeatedHandRankList.Where(cr => cr.Frequency == 2);
-            if(pairs != null)
+            if(pairs.Any())
             {
                 if (pairs.Count() == 2) {
                     return _handTypes.GetHandTypeByTypeName("Two Pair");
@@ -114,13 +114,15 @@ namespace Poker.API.Helpers
         private bool IsHandStraight(List<Card> hand)
         {
             List<Card> orderedHand = hand.OrderByDescending(c => c.Rank).ToList();
-            Card highestRankCard = orderedHand[0];
-            Card lowestRankCard = orderedHand[orderedHand.Count()-1];
-            if (highestRankCard.Rank - lowestRankCard.Rank == 5)
+            for (int i = 1; i < hand.Count(); i++)
             {
-                return true;
+                if (orderedHand[i-1].Rank - orderedHand[i].Rank != 1)
+                {
+                    return false;
+                }
             }
-            return false;
+
+            return true;
         }
 
         private bool IsHandFlush(List<Card> hand)
@@ -133,6 +135,7 @@ namespace Poker.API.Helpers
                     return false;
                 }
             }
+
             return true;
         }
 

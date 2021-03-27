@@ -28,7 +28,7 @@ namespace Poker.API.Repositories
             pokerHand.Id = Guid.NewGuid();
             pokerHand.DateCreated = DateTime.Now;
             _context.PokerHands.Add(pokerHand);
-            
+            Save();
             return pokerHand;
         }
 

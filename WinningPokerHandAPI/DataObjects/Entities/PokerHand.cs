@@ -20,23 +20,18 @@ namespace Poker.API.DataObjects.Entities
         //cut due to time limitations
         //could be expanded to include things like order draw and other data
         [Required]
-        [StringLength(2)]
         public string Card1 { get; set; }
 
         [Required]
-        [StringLength(2)]
         public string Card2 { get; set; }
 
         [Required]
-        [StringLength(2)]
         public string Card3 { get; set; }
 
         [Required]
-        [StringLength(2)]
         public string Card4 { get; set; }
 
         [Required]
-        [StringLength(2)]
         public string Card5 { get; set; }
 
         [Required]
