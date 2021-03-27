@@ -23,9 +23,9 @@ namespace Poker.API.Helpers
                 throw new ArgumentException(String.Format("{0} is out of bounds. No card priorities less than 1 exist", priority),
                                       "priority");
             }
-            else if (priority > 8)
+            else if (priority > 9)
             {
-                throw new ArgumentException(String.Format("{0} is out of bounds. No card priorities greater than 8 exist", priority),
+                throw new ArgumentException(String.Format("{0} is out of bounds. No card priorities greater than 9 exist", priority),
                                       "priority");
             }
             return _handRef.Where(h => h.WinPriority == priority).FirstOrDefault();
@@ -61,47 +61,48 @@ namespace Poker.API.Helpers
                 },
                 new HandType()
                 {
-                    Name = "Full House",
+                    Name = "Four of a Kind",
                     WinPriority = 2
                 },
                 new HandType()
                 {
-                    Name = "Flush",
+                    Name = "Full House",
                     WinPriority = 3
                 },
                 new HandType()
                 {
-                    Name = "Straight",
+                    Name = "Flush",
                     WinPriority = 4
                 },
                 new HandType()
                 {
-                    Name = "Three of a Kind",
+                    Name = "Straight",
                     WinPriority = 5
                 },
                 new HandType()
                 {
-                    Name = "Two Pair",
+                    Name = "Three of a Kind",
                     WinPriority = 6
                 },
                 new HandType()
                 {
-                    Name = "Pair",
+                    Name = "Two Pair",
                     WinPriority = 7
                 },
                 new HandType()
                 {
-                    Name = "High Card",
+                    Name = "Pair",
                     WinPriority = 8
+                },
+                new HandType()
+                {
+                    Name = "High Card",
+                    WinPriority = 9
                 }
             };
             return handRef;
         }
 
-        private ICollection<HandType> GetHandTypeCollection()
-        {
-            return _handRef;
-        }
         #endregion 
     }
 }

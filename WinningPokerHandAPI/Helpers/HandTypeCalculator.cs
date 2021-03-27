@@ -9,32 +9,27 @@ namespace Poker.API.Helpers
    
     public class HandTypeCalculator
     {
-        ApprovedCardDict _cardDict;
+        private ApprovedCardDict _cardDict;
+        private HandTypeCollection _handTypes;
 
         public HandTypeCalculator()
         {
             _cardDict = new ApprovedCardDict();
+            _handTypes = new HandTypeCollection();
         }
 
-        public string GetHandType(PokerHand hand)
+        public HandType GetHandType(PokerHand hand)
         {
-            Card[] weightedHand = new Card[5];
-            weightedHand[0] = _cardDict.GetCardInfo(hand.Card1);
-            weightedHand[1] = _cardDict.GetCardInfo(hand.Card2);
-            weightedHand[2] = _cardDict.GetCardInfo(hand.Card3);
-            weightedHand[3] = _cardDict.GetCardInfo(hand.Card4);
-            weightedHand[4] = _cardDict.GetCardInfo(hand.Card5);
+            List<Card> cardsInHand = new List<Card>();
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card1));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card2));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card3));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card4));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card5));
 
-            //Sort from highest to lowest card
-            List<Card> OrderedHand = weightedHand.OrderByDescending(c => c.Rank).ToList();
-
-            return "";
-        }
-
-        public void GetRepeatedCardRanks(List<Card> orderedHand)
-        {
+            //key is Rank. Value is frequency
             Dictionary<int, int> repeatedHandRanks = new Dictionary<int, int>();
-            foreach(var card in orderedHand)
+            foreach (var card in cardsInHand)
             {
                 if (repeatedHandRanks.ContainsKey(card.Rank))
                 {
@@ -45,6 +40,100 @@ namespace Poker.API.Helpers
                     repeatedHandRanks[card.Rank] = 1;
                 }
             }
+
+            //check if hand is Straight
+            bool isHandStraight = IsHandStraight(cardsInHand);
+            bool isHandFlush = IsHandFlush(cardsInHand);
+
+            //check is hand straight flush
+            if (isHandStraight && isHandFlush)
+            {
+                return _handTypes.GetHandTypeByTypeName("Straight Flush");
+            }
+
+            //convert to List to use Linq easily to query collection
+            List<CardFrequency> repeatedHandRankList = new List<CardFrequency>();
+            foreach (KeyValuePair<int, int> entry in repeatedHandRanks)
+            {
+                repeatedHandRankList.Add(new CardFrequency() { Rank = entry.Key, Frequency = entry.Value });
+            }
+
+            //check for quads
+            var quads = repeatedHandRankList.Where(cr => cr.Frequency == 4).FirstOrDefault();
+            if (quads != null) {
+                return _handTypes.GetHandTypeByTypeName("Four of a Kind");
+            }
+
+            //check for full house
+            var trips = repeatedHandRankList.Where(cr => cr.Frequency == 3).FirstOrDefault();
+            if (trips != null)
+            {
+                //check for full house
+                var pairNeededForBoat = repeatedHandRankList.Where(cr => cr.Frequency == 2).FirstOrDefault();
+                if (pairNeededForBoat != null)
+                {
+                    return _handTypes.GetHandTypeByTypeName("Full House");
+                }
+            }
+
+            //return if flush
+            //check is hand straight flush
+            if (isHandFlush)
+            {
+                return _handTypes.GetHandTypeByTypeName("Flush");
+            }
+
+            //return if flush
+            //check is hand straight flush
+            if (isHandStraight)
+            {
+                return _handTypes.GetHandTypeByTypeName("Straight");
+            }
+
+            //check for trips
+            if (trips != null)
+            {
+                return _handTypes.GetHandTypeByTypeName("Three of a Kind");
+            }
+
+            //check for two pair
+            var pairs = repeatedHandRankList.Where(cr => cr.Frequency == 2);
+            if(pairs != null)
+            {
+                if (pairs.Count() == 2) {
+                    return _handTypes.GetHandTypeByTypeName("Two Pair");
+                }
+                //must be pair
+                return _handTypes.GetHandTypeByTypeName("Pair");
+            }
+
+            //With all other options exausted hand must be a high card
+            return _handTypes.GetHandTypeByTypeName("High Card");
+        }
+
+        private bool IsHandStraight(List<Card> hand)
+        {
+            List<Card> orderedHand = hand.OrderByDescending(c => c.Rank).ToList();
+            Card highestRankCard = orderedHand[0];
+            Card lowestRankCard = orderedHand[orderedHand.Count()-1];
+            if (highestRankCard.Rank - lowestRankCard.Rank == 5)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsHandFlush(List<Card> hand)
+        {
+            string highestCardSuit = hand[0].Suit;
+            for (int i = 1; i < hand.Count(); i++)
+            {
+                if (hand[i].Suit != highestCardSuit)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
     }
