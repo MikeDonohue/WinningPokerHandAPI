@@ -1,22 +1,20 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WinningPokerHandAPI.DataObjects.Entities
 {
     public class PokerHand
     {
-        [Key]
+        public PokerHand()
+        {
+            this.Cards = new HashSet<Card>();
+        }
         public Guid Id { get; set; }
 
-        [Required]
-        [MaxLength(100)]
         public string PlayerName { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string Cards { get; set; }
-
-        [Required]
+        public string Type { get; set; }
         public DateTimeOffset DateCreated { get; set; }
+        public ICollection<Card> Cards { get; set; }
     }
 }

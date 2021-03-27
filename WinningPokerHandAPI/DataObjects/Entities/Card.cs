@@ -1,20 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WinningPokerHandAPI.DataObjects.Entities
 {
-    [Keyless]
     public class Card
     {
-        [Required]
-        public string Id;
+        public Guid HandId;
 
-        [Required]
+        public string CardId;
+
         public int Rank;
 
-        [Required]
         public string Suit;
 
+        public PokerHand PokerHand { get; set; }
     }
 }

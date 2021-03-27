@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WinningPokerHandAPI.DbContexts;
 
 namespace WinningPokerHandAPI.Migrations
 {
     [DbContext(typeof(PokerHandsContext))]
-    partial class PokerHandsContextModelSnapshot : ModelSnapshot
+    [Migration("20210327020017_ReferenceTableMigration")]
+    partial class ReferenceTableMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

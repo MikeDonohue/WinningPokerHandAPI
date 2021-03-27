@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace WinningPokerHandAPI.DataObjects.Dtos
 {
@@ -8,7 +9,7 @@ namespace WinningPokerHandAPI.DataObjects.Dtos
 
         public string PlayerName { get; set; }
        
-        public string Cards { get; set; }
+        public ICollection<string> Cards { get; set; }
 
         public DateTimeOffset DateCreated { get; set; }
     }
