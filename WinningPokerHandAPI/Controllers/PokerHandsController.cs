@@ -19,7 +19,7 @@ namespace WinningPokerHandAPI.Controllers
         }
 
 
-        [HttpGet("{handId}", Name = "GetPokerHand")]
+        [HttpGet("{pokerHandId}", Name = "GetPokerHand")]
         public IActionResult GetPokerHand(Guid pokerHandId)
         {
             var savedHand = _pokerHandsService.GetPokerHand(pokerHandId);
@@ -38,7 +38,7 @@ namespace WinningPokerHandAPI.Controllers
             var pokerHandCreated = _pokerHandsService.AddPokerHand(pokerHandDto);
 
             return CreatedAtRoute("GetPokerHand",
-                new { authorId = pokerHandCreated.Id },
+                new { pokerHandId = pokerHandCreated.Id },
                 pokerHandCreated);
         }
 

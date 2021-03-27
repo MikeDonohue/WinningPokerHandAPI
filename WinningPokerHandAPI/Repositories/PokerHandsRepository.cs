@@ -28,6 +28,7 @@ namespace WinningPokerHandAPI.Repositories
             pokerHand.Id = Guid.NewGuid();
             pokerHand.DateCreated = DateTime.Now;
             _context.PokerHands.Add(pokerHand);
+            
             return pokerHand;
         }
 
