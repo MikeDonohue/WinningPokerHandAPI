@@ -26,6 +26,8 @@ namespace WinningPokerHandAPI.Services
         PokerHand IPokerHandsService.AddPokerHand(PokerHandForCreationDto pokerHandDto)
         {
             var pokerHandToAdd = _mapper.Map<PokerHand>(pokerHandDto);
+            //Add call to determine card type
+            pokerHandToAdd.Type = "Flush";
             _pokerHandsRepository.AddPokerHand(pokerHandToAdd);
             _pokerHandsRepository.Save();
             return pokerHandToAdd;

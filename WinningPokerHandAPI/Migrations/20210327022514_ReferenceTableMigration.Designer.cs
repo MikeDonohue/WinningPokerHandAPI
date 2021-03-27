@@ -10,7 +10,7 @@ using WinningPokerHandAPI.DbContexts;
 namespace WinningPokerHandAPI.Migrations
 {
     [DbContext(typeof(PokerHandsContext))]
-    [Migration("20210326044331_ReferenceTableMigration")]
+    [Migration("20210327022514_ReferenceTableMigration")]
     partial class ReferenceTableMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,18 +27,41 @@ namespace WinningPokerHandAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Cards")
+                    b.Property<string>("Card1")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.Property<string>("Card2")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.Property<string>("Card3")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.Property<string>("Card4")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.Property<string>("Card5")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
 
                     b.Property<DateTimeOffset>("DateCreated")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("PlayerName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -48,9 +71,14 @@ namespace WinningPokerHandAPI.Migrations
                         new
                         {
                             Id = new Guid("d28888e9-2ba9-473a-a40f-e38cb54f9b35"),
-                            Cards = "AHACADAS2H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 26, 0, 43, 30, 659, DateTimeKind.Unspecified).AddTicks(3033), new TimeSpan(0, -4, 0, 0, 0)),
-                            PlayerName = "Berry"
+                            Card1 = "AH",
+                            Card2 = "AS",
+                            Card3 = "AD",
+                            Card4 = "AC",
+                            Card5 = "2H",
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 26, 22, 25, 14, 356, DateTimeKind.Unspecified).AddTicks(2246), new TimeSpan(0, -4, 0, 0, 0)),
+                            PlayerName = "Berry",
+                            Type = "4kind"
                         });
                 });
 #pragma warning restore 612, 618

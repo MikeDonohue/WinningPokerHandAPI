@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace WinningPokerHandAPI.Helpers
 {
-    public class HandStrength
+    public class HandTypeCalculator
     {
-
+        
     }
 }
