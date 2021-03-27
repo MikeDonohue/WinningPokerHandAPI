@@ -26,16 +26,37 @@ namespace Poker.API.Services
             _handTypeCalculator = new HandTypeCalculator();
         }
 
-        PokerHand IPokerHandsService.AddPokerHand(PokerHandForCreationDto pokerHandDto)
+        public IEnumerable<PokerHandDto> AddPokerHands(IEnumerable<PokerHandForCreationDto> pokerHandDtos)
+        {
+            List <PokerHandDto> pokerHandDtosToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandDto in pokerHandDtos)
+            {
+                pokerHandDtosToReturn.Add(AddPokerHand(pokerHandDto));
+            }
+            return pokerHandDtosToReturn;
+        }
+
+        public IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds)
+        {
+            List<PokerHandDto> handsToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandId in pokerHandIds)
+            {
+                handsToReturn.Add(GetPokerHand(pokerHandId));
+            }
+            return handsToReturn;
+        }
+
+        public PokerHandDto AddPokerHand(PokerHandForCreationDto pokerHandDto)
         {
             var pokerHandToAdd = _mapper.Map<PokerHand>(pokerHandDto);
             //Add call to determine card type
             pokerHandToAdd.Type = _handTypeCalculator.GetHandType(pokerHandToAdd).Name;
             _pokerHandsRepository.AddPokerHand(pokerHandToAdd);
-            return pokerHandToAdd;
+            var pokerDtoToReturn = _mapper.Map<PokerHandDto>(pokerHandToAdd);
+            return pokerDtoToReturn;
         }
 
-        PokerHandDto IPokerHandsService.GetPokerHand(Guid pokerHandId)
+        public PokerHandDto GetPokerHand(Guid pokerHandId)
         {
             var pokerHandToReturn = _pokerHandsRepository.GetPokerHand(pokerHandId);
             return _mapper.Map<DataObjects.Dtos.PokerHandDto>(pokerHandToReturn);

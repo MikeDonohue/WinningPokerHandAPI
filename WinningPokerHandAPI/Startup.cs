@@ -40,7 +40,7 @@ namespace Poker.API
             services.AddDbContext<PokerHandsContext>(options =>
             {
                 options.UseSqlServer(
-                    @"Server=(localdb)\mssqllocaldb;Database=CourseLibraryDB;Trusted_Connection=True;");
+                    @"Server=(localdb)\mssqllocaldb;Database=PokerDB;Trusted_Connection=True;");
             });
         }
 

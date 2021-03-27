@@ -9,7 +9,11 @@ namespace Poker.API.Services
 {
     public interface IPokerHandsService
     {
-        public PokerHand AddPokerHand(PokerHandForCreationDto pokerHandDto);
+        public PokerHandDto AddPokerHand(PokerHandForCreationDto pokerHandDto);
+
+        public IEnumerable<PokerHandDto> AddPokerHands(IEnumerable<PokerHandForCreationDto> pokerHandDtos);
         public PokerHandDto GetPokerHand(Guid pokerHandId);
+
+        IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds);
     }
 }
