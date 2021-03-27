@@ -21,8 +21,8 @@ namespace Poker.API.Helpers
         public List<PokerHand> GetWinningHand(List<PokerHand> hands)
         {
             //first winner to first item in list
-            PokerHand winner = hands[0];
-            var winnerRank = _handTypes.GetHandTypeByTypeName(winner.Type).WinPriority;
+            List<PokerHand> winners = new List<PokerHand> { hands[0] };
+            var winnerRank = _handTypes.GetHandTypeByTypeName(winners[0].Type).WinPriority;
 
             for (int i = 1; i < hands.Count(); i++)
             {
@@ -30,23 +30,56 @@ namespace Poker.API.Helpers
                 if (currentRank < winnerRank)
                 {
                     winnerRank = currentRank;
-                    winner = hands[i];
+                    winners = new List<PokerHand> { hands[i] };
                 }
                 if(currentRank == winnerRank)
                 {
-                    //winner = ()
+                    winners = CompareKickers(winners, hands[i]);
                 }
             }
-            return new List<PokerHand> { winner };
+            return winners;
         }
 
         //compare kickers
-        private PokerHand CompareKickers()
+        private List<PokerHand> CompareKickers(List<PokerHand> currentWinners, PokerHand challenger)
         {
-            //sort based priority
-            //loop until one card is better
-            //if neither are better return both to indicate a chopped pot
-            return null;
+            //if there is more than one currentWinner it is becuase there is already a tie.
+            //Therefore the hands are the same so only one needs to be compared
+            List<Card> cardsInHand1 = GetCardListFromHand(currentWinners[0]);
+            List<Card> cardsInHand2 = GetCardListFromHand(challenger);
+            for (int i = 0; i < cardsInHand1.Count(); i++)
+            {
+                //kickers are the same
+                if(cardsInHand1[i].Rank == cardsInHand1[i].Rank)
+                {
+                    continue;
+                }
+                //hand1 has better kicker
+                else if (cardsInHand1[i].Rank > cardsInHand1[i].Rank)
+                {
+                    return currentWinners;
+                }
+                //hand2 has better kicker
+                else if (cardsInHand1[i].Rank < cardsInHand1[i].Rank)
+                {
+                    return new List<PokerHand> { challenger };
+                }
+            }
+            //hands are the same. Pot will be chopped.
+            currentWinners.Add(challenger);
+            return currentWinners;
+        }
+
+        private List<Card> GetCardListFromHand(PokerHand hand)
+        {
+            List<Card> cardsInHand = new List<Card>();
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card1));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card2));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card3));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card4));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card5));
+            cardsInHand = cardsInHand.OrderByDescending(c => c.Rank).ToList();
+            return cardsInHand;
         }
 
 
