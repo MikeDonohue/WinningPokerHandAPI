@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WinningPokerHandAPI.DataObjects.Dtos;
-using WinningPokerHandAPI.DataObjects.Entities;
-using WinningPokerHandAPI.Repositories;
+using Poker.API.DataObjects.Dtos;
+using Poker.API.DataObjects.Entities;
+using Poker.API.Repositories;
 
-namespace WinningPokerHandAPI.Services
+namespace Poker.API.Services
 {
     public class PokerHandsService : IPokerHandsService
     {

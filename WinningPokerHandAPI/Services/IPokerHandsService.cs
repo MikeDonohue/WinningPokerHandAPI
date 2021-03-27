@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WinningPokerHandAPI.DataObjects.Dtos;
-using WinningPokerHandAPI.DataObjects.Entities;
+using Poker.API.DataObjects.Dtos;
+using Poker.API.DataObjects.Entities;
 
-namespace WinningPokerHandAPI.Services
+namespace Poker.API.Services
 {
     public interface IPokerHandsService
     {

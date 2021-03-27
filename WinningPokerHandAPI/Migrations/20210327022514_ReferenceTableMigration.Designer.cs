@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WinningPokerHandAPI.DbContexts;
+using Poker.API.DbContexts;
 
-namespace WinningPokerHandAPI.Migrations
+namespace Poker.API.Migrations
 {
     [DbContext(typeof(PokerHandsContext))]
     [Migration("20210327022514_ReferenceTableMigration")]
@@ -21,7 +21,7 @@ namespace WinningPokerHandAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WinningPokerHandAPI.DataObjects.Entities.PokerHand", b =>
+            modelBuilder.Entity("Poker.API.DataObjects.Entities.PokerHand", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

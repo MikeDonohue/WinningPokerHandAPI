@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WinningPokerHandAPI.DataObjects;
-using WinningPokerHandAPI.DataObjects.Entities;
+using Poker.API.DataObjects;
+using Poker.API.DataObjects.Entities;
 
-namespace WinningPokerHandAPI.Repositories
+namespace Poker.API.Repositories
 {
     public interface IPokerHandsRepository
     {

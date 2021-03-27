@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using WinningPokerHandAPI.DataObjects.Entities;
+using Poker.API.DataObjects.Entities;
 
-namespace WinningPokerHandAPI.DbContexts
+namespace Poker.API.DbContexts
 {
     public class PokerHandsContext : DbContext
     {
@@ -12,10 +12,6 @@ namespace WinningPokerHandAPI.DbContexts
         }
 
         public DbSet<PokerHand> PokerHands { get; set; }
-
-        //public DbSet<Card> Cards { get; set; }
-
-        //reference table
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

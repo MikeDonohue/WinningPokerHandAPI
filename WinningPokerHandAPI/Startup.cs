@@ -11,11 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WinningPokerHandAPI.DbContexts;
-using WinningPokerHandAPI.Repositories;
-using WinningPokerHandAPI.Services;
+using Poker.API.DbContexts;
+using Poker.API.Repositories;
+using Poker.API.Services;
 
-namespace WinningPokerHandAPI
+namespace Poker.API
 {
     public class Startup
     {

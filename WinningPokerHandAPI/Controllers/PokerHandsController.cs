@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using WinningPokerHandAPI.DataObjects.Dtos;
-using WinningPokerHandAPI.Services;
+using Poker.API.DataObjects.Dtos;
+using Poker.API.Services;
 
-namespace WinningPokerHandAPI.Controllers
+namespace Poker.API.Controllers
 {
     [ApiController]
     [Route("pokerhands")]

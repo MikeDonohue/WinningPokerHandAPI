@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace WinningPokerHandAPI.DataObjects.Dtos
+namespace Poker.API.DataObjects.Dtos
 {
     public class PokerHandForCreationDto
     {

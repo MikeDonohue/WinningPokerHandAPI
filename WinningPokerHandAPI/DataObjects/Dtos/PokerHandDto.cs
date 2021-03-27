@@ -1,6 +1,6 @@
 using System;
 
-namespace WinningPokerHandAPI.DataObjects.Dtos
+namespace Poker.API.DataObjects.Dtos
 {
     public class PokerHandDto : PokerHandForCreationDto
     {

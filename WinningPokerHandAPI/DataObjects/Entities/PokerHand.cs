@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace WinningPokerHandAPI.DataObjects.Entities
+namespace Poker.API.DataObjects.Entities
 {
     public class PokerHand
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WinningPokerHandAPI.Migrations
+namespace Poker.API.Migrations
 {
     public partial class ReferenceTableMigration : Migration
     {

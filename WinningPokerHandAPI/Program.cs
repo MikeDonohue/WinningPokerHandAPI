@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using WinningPokerHandAPI.DbContexts;
+using Poker.API.DbContexts;
 
-namespace WinningPokerHandAPI
+namespace Poker.API
 {
     public class Program
     {
