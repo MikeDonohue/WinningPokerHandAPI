@@ -28,14 +28,21 @@ namespace Poker.API.Services
             _handComparer = new HandComparer();
         }
 
-        public IEnumerable<PokerHandDto> AddPokerHands(IEnumerable<PokerHandForCreationDto> pokerHandDtos)
+        #region Get Methods
+        public PokerHandDto GetPokerHand(Guid pokerHandId)
         {
-            List <PokerHandDto> pokerHandDtosToReturn = new List<PokerHandDto>();
-            foreach (var pokerHandDto in pokerHandDtos)
+            var pokerHandToReturn = _pokerHandsRepository.GetPokerHand(pokerHandId);
+            return _mapper.Map<DataObjects.Dtos.PokerHandDto>(pokerHandToReturn);
+        }
+
+        public IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds)
+        {
+            List<PokerHandDto> handsToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandId in pokerHandIds)
             {
-                pokerHandDtosToReturn.Add(AddPokerHand(pokerHandDto));
+                handsToReturn.Add(GetPokerHand(pokerHandId));
             }
-            return pokerHandDtosToReturn;
+            return handsToReturn;
         }
 
         public IEnumerable<PokerHandDto> GetWinningPokerHands(IEnumerable<Guid> pokerHandIds)
@@ -49,16 +56,13 @@ namespace Poker.API.Services
             return handsToReturn;
         }
 
-        public IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds)
+        public IEnumerable<PokerHandDto> GetAllPokerHands()
         {
-            List<PokerHandDto> handsToReturn = new List<PokerHandDto>();
-            foreach (var pokerHandId in pokerHandIds)
-            {
-                handsToReturn.Add(GetPokerHand(pokerHandId));
-            }
-            return handsToReturn;
+            return _mapper.Map<IEnumerable<PokerHandDto>>(_pokerHandsRepository.GetAllPokerHands());
         }
+        #endregion
 
+        #region Add Methods
         public PokerHandDto AddPokerHand(PokerHandForCreationDto pokerHandDto)
         {
             var pokerHandToAdd = _mapper.Map<PokerHand>(pokerHandDto);
@@ -69,10 +73,25 @@ namespace Poker.API.Services
             return pokerDtoToReturn;
         }
 
-        public PokerHandDto GetPokerHand(Guid pokerHandId)
+        public IEnumerable<PokerHandDto> AddPokerHands(IEnumerable<PokerHandForCreationDto> pokerHandDtos)
         {
-            var pokerHandToReturn = _pokerHandsRepository.GetPokerHand(pokerHandId);
-            return _mapper.Map<DataObjects.Dtos.PokerHandDto>(pokerHandToReturn);
+            List<PokerHandDto> pokerHandDtosToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandDto in pokerHandDtos)
+            {
+                pokerHandDtosToReturn.Add(AddPokerHand(pokerHandDto));
+            }
+            return pokerHandDtosToReturn;
         }
+        #endregion
+
+
+
+        
+
+        
+
+        
+
+        
     }
 }

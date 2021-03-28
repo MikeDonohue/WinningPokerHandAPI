@@ -11,7 +11,7 @@ namespace Poker.API.Repositories
     {
         public PokerHand AddPokerHand(PokerHand pokerHand);
         public PokerHand GetPokerHand(Guid pokerHandId);
+        public IEnumerable<PokerHand> GetAllPokerHands();
         public bool Save();
-
     }
 }

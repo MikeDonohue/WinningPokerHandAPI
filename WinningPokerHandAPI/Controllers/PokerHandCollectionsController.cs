@@ -21,6 +21,7 @@ namespace Poker.API.Controllers
                 throw new ArgumentNullException(nameof(PokerHandsService));
         }
 
+        #region Http Requests
         [HttpGet("({ids})", Name ="GetPokerHandCollection")]
         public IActionResult GetPokerHandCollection(
         [FromRoute]
@@ -51,6 +52,19 @@ namespace Poker.API.Controllers
              new { ids = idsAsString },
              pokerHandDtos);
         }
+        #endregion
+
+        #region HATEOAS Methods
+
+        private IEnumerable<LinkDto> CreateLinksForPokerHandCollections(Guid pokerHandId)
+        {
+            var links = new List<LinkDto>();
+
+            links.Add(new LinkDto(Url.Link("GetPokerHand", new { pokerHandId }), "self", "GET"));
+
+            return links;
+        }
+        #endregion
     }
 }
  

@@ -28,7 +28,7 @@ namespace Poker.API.Controllers
                 throw new ArgumentNullException(nameof(PokerHandsService));
         }
 
-        [HttpGet()]
+        [HttpGet(Name = "GetWinningPokerHands")]
         public IActionResult GetWinningPokerHands(
         [FromRoute]
         [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)

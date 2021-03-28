@@ -43,6 +43,11 @@ namespace Poker.API.Repositories
               .Where(c => c.Id == pokerHandId).FirstOrDefault();
         }
 
+        public IEnumerable<PokerHand> GetAllPokerHands()
+        {
+            return _context.PokerHands;
+        }
+
         public bool Save()
         {
             return (_context.SaveChanges() >= 0);

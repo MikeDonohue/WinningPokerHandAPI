@@ -14,8 +14,10 @@ namespace Poker.API.Services
         public IEnumerable<PokerHandDto> AddPokerHands(IEnumerable<PokerHandForCreationDto> pokerHandDtos);
         public PokerHandDto GetPokerHand(Guid pokerHandId);
 
-        IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds);
+        public IEnumerable<PokerHandDto> GetAllPokerHands();
 
-        IEnumerable<PokerHandDto> GetWinningPokerHands(IEnumerable<Guid> pokerHandIds);
+        public IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds);
+
+        public IEnumerable<PokerHandDto> GetWinningPokerHands(IEnumerable<Guid> pokerHandIds);
     }
 }
