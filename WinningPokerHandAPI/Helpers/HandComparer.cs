@@ -21,6 +21,17 @@ namespace Poker.API.Helpers
 
         public List<PokerHandDto> GetWinningHand(List<PokerHandDto> hands)
         {
+            //null check
+            if (hands == null)
+            {
+                throw new ArgumentNullException(nameof(hands));
+            }
+            //empty check
+            if (!hands.Any())
+            {
+                throw new ArgumentException(nameof(hands));
+            }
+
             //first winner to first item in list
             List<PokerHandDto> winners = new List<PokerHandDto> { hands[0] };
             var winnerRank = _handTypes.GetHandTypeByTypeName(winners[0].Type).WinPriority;
@@ -51,17 +62,17 @@ namespace Poker.API.Helpers
             for (int i = 0; i < cardsInHand1.Count(); i++)
             {
                 //kickers are the same
-                if(cardsInHand1[i].Rank == cardsInHand1[i].Rank)
+                if(cardsInHand1[i].Rank == cardsInHand2[i].Rank)
                 {
                     continue;
                 }
                 //hand1 has better kicker
-                else if (cardsInHand1[i].Rank > cardsInHand1[i].Rank)
+                else if (cardsInHand1[i].Rank > cardsInHand2[i].Rank)
                 {
                     return currentWinners;
                 }
                 //hand2 has better kicker
-                else if (cardsInHand1[i].Rank < cardsInHand1[i].Rank)
+                else if (cardsInHand1[i].Rank < cardsInHand2[i].Rank)
                 {
                     return new List<PokerHandDto> { challenger };
                 }

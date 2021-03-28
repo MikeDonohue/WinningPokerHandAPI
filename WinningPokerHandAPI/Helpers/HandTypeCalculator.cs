@@ -20,6 +20,12 @@ namespace Poker.API.Helpers
 
         public HandType GetHandType(PokerHand hand)
         {
+            //null check
+            if(hand == null)
+            {
+                throw new ArgumentNullException(nameof(hand));
+            }
+
             List<Card> cardsInHand = new List<Card>();
             cardsInHand.Add(_cardDict.GetCardInfo(hand.Card1));
             cardsInHand.Add(_cardDict.GetCardInfo(hand.Card2));
