@@ -29,7 +29,13 @@ namespace Poker.API.Migrations
             migrationBuilder.InsertData(
                 table: "PokerHands",
                 columns: new[] { "Id", "Card1", "Card2", "Card3", "Card4", "Card5", "DateCreated", "PlayerName", "Type" },
-                values: new object[] { new Guid("d28888e9-2ba9-473a-a40f-e38cb54f9b35"), "AH", "AS", "AD", "AC", "2H", new DateTimeOffset(new DateTime(2021, 3, 27, 16, 18, 31, 372, DateTimeKind.Unspecified).AddTicks(1403), new TimeSpan(0, -4, 0, 0, 0)), "Berry", "4kind" });
+                values: new object[,]
+                {
+                    { new Guid("a9ff5f60-3500-4311-bdac-3faacdeb92b1"), "AH", "AS", "AD", "AC", "2H", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 332, DateTimeKind.Unspecified).AddTicks(7542), new TimeSpan(0, -4, 0, 0, 0)), "Berry", "Four of a Kind" },
+                    { new Guid("8d6e84de-47ce-4561-9a41-5215eb26526b"), "KC", "2C", "3C", "4C", "8C", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8858), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Flush" },
+                    { new Guid("7d6e84de-47ce-4561-9a41-5215eb26526b"), "KH", "2H", "3H", "4H", "9H", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8952), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Flush" },
+                    { new Guid("6d6e84de-47ce-4561-9a41-5215eb26526b"), "QC", "2D", "7C", "5S", "5H", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8965), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Pair" }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

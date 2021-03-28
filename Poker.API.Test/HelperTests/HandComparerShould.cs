@@ -1,6 +1,6 @@
 using Poker.API.DataObjects.Dtos;
 using Poker.API.DataObjects.Entities;
-using Poker.API.Helpers;
+using Poker.API.Services.HandComparisonBL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,10 @@ using Xunit;
 
 namespace Poker.API.Test.HelperTests
 {
+    /// <summary>
+    /// Class to test HandComparer class.
+    /// All test player names are poker pros I find entertaining.
+    /// </summary>
     public class HandComparerShould
     {
 
@@ -44,7 +48,7 @@ namespace Poker.API.Test.HelperTests
 
             string expectedWinnerName = "Phil Hellmuth";
 
-             var pokerHandReturned = testHandCalc.GetWinningHand(new List<PokerHandDto> { testPokHand1, testPokHand2 });
+            var pokerHandReturned = testHandCalc.GetWinningHand(new List<PokerHandDto> { testPokHand1, testPokHand2 });
             Assert.Single(pokerHandReturned);
             Assert.Equal(expectedWinnerName, pokerHandReturned.FirstOrDefault().PlayerName);
         }

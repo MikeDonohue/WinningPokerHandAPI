@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Poker.API.DataObjects.Dtos;
 using Poker.API.DataObjects.Entities;
 
-namespace Poker.API.Helpers
+namespace Poker.API.Services.HandComparisonBL
 {
-   
+    /// <summary>
+    /// Class HandComparer.
+    /// </summary>
     public class HandComparer
     {
         private ApprovedCardDict _cardDict;
@@ -19,6 +21,13 @@ namespace Poker.API.Helpers
             _handTypes = new HandTypeCollection();
         }
 
+        /// <summary>
+        /// Gets the winning hand.
+        /// </summary>
+        /// <param name="hands">The poker hands.</param>
+        /// <returns>List of winning hands. Is a list since ties are possible. Chopped pots.</returns>
+        /// <exception cref="ArgumentNullException">hands</exception>
+        /// <exception cref="ArgumentException">hands</exception>
         public List<PokerHandDto> GetWinningHand(List<PokerHandDto> hands)
         {
             //null check
@@ -52,7 +61,12 @@ namespace Poker.API.Helpers
             return winners;
         }
 
-        //compare kickers
+        /// <summary>
+        /// Compares the kickers.
+        /// </summary>
+        /// <param name="currentWinners">The current winners.</param>
+        /// <param name="challenger">The challenger.</param>
+        /// <returns>List of winners.</returns>
         private List<PokerHandDto> CompareKickers(List<PokerHandDto> currentWinners, PokerHandDto challenger)
         {
             //if there is more than one currentWinner it is becuase there is already a tie.
@@ -82,6 +96,12 @@ namespace Poker.API.Helpers
             return currentWinners;
         }
 
+        /// <summary>
+        /// Gets the card list with additional info from hand.
+        /// Orders list from highest to lowest value cards
+        /// </summary>
+        /// <param name="hand">The hand.</param>
+        /// <returns>List of cards</returns>
         private List<Card> GetCardListFromHand(PokerHandDto hand)
         {
             List<Card> cardsInHand = new List<Card>();

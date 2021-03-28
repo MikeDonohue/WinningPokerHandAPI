@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Poker.API.DataObjects.Entities;
 
-namespace Poker.API.Helpers
+namespace Poker.API.Services.HandComparisonBL
 {
    
     public class HandTypeCalculator
@@ -18,6 +18,12 @@ namespace Poker.API.Helpers
             _handTypes = new HandTypeCollection();
         }
 
+        /// <summary>
+        /// Gets the type of the hand.
+        /// </summary>
+        /// <param name="hand">The hand.</param>
+        /// <returns>HandType.</returns>
+        /// <exception cref="ArgumentNullException">Provided poker hand is null.</exception>
         public HandType GetHandType(PokerHand hand)
         {
             //null check

@@ -2,11 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Poker.API.Helpers
+namespace Poker.API.Services.HandComparisonBL
 {
-    public class CardFrequency
+    public class Card
     {
         public int Rank;
-        public int Frequency;
+        public string Suit;
     }
 }

@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Poker.API.Helpers
+namespace Poker.API.Services.HandComparisonBL
 {
+    /// <summary>
+    /// Class used to check is a card is valid and get additional information about the card - rank, suit.
+    /// Eventually this will be moved to a reference table in the db.
+    /// </summary>
     public class ApprovedCardDict
     {
         private Dictionary<string, Card> _cardDict;
@@ -14,7 +18,12 @@ namespace Poker.API.Helpers
             _cardDict = BuildCardDict();
         }
 
-        //Private Methods
+        /// <summary>
+        /// Gets the card information.
+        /// </summary>
+        /// <param name="cardText">The card text.</param>
+        /// <returns>Card with rank and suit.</returns>
+        /// <exception cref="ArgumentException">cardText</exception>
         public Card GetCardInfo(string cardText)
         {
             Card cardToReturn;
@@ -29,10 +38,10 @@ namespace Poker.API.Helpers
             }
         }
 
-        // <summary>
-        /// Create dictionary of all card values
+        /// <summary>
+        /// Builds the card dictionary. Essentially generates a deck
         /// </summary>
-        /// <returns>Array of 52 cards</returns>
+        /// <returns>Dictionary of cards.</returns>
         private Dictionary<string, Card> BuildCardDict()
         {
             Dictionary<string, Card> cardDict = new Dictionary<string, Card>();

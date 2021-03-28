@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace Poker.API.Helpers
+namespace Poker.API.Services.HandComparisonBL
 {
+    /// <summary>
+    /// Class HandTypeCollection.
+    /// ToDo: move to reference table in db.
+    /// </summary>
     public class HandTypeCollection
     {
         private ICollection<HandType> _handRef;
@@ -16,21 +20,29 @@ namespace Poker.API.Helpers
             _handRef = BuildHandTypeReferenceCollection();
         }
 
+        /// <summary>
+        /// Gets the hand type by priority.
+        /// </summary>
+        /// <param name="priority">The priority.</param>
+        /// <returns>HandType.</returns>
+        /// <exception cref="ArgumentException">priority must be between 1 to 9</exception>
         public HandType GetHandTypeByPriority(int priority)
         {
-            if (priority < 1)
+            if (priority < 1 || priority > 9)
             {
-                throw new ArgumentException(String.Format("{0} is out of bounds. No card priorities less than 1 exist", priority),
-                                      "priority");
-            }
-            else if (priority > 9)
-            {
-                throw new ArgumentException(String.Format("{0} is out of bounds. No card priorities greater than 9 exist", priority),
+                throw new ArgumentException(String.Format("{0} is out of bounds. No card priorities less than 1 or greater than 9 exist", priority),
                                       "priority");
             }
             return _handRef.Where(h => h.WinPriority == priority).FirstOrDefault();
         }
 
+        /// <summary>
+        /// Gets the name of the hand type by type.
+        /// </summary>
+        /// <param name="typeName">Name of the type.</param>
+        /// <returns>HandType.</returns>
+        /// <exception cref="ArgumentNullException">Please provide a non-empty hand type name.</exception>
+        /// <exception cref="ArgumentException">Provide a valid hand type.</exception>
         public HandType GetHandTypeByTypeName(string typeName)
         {
             if (string.IsNullOrEmpty(typeName))
@@ -49,7 +61,12 @@ namespace Poker.API.Helpers
         }
         #endregion
 
-        #region private methods
+        #region private methods        
+        /// <summary>
+        /// Builds the hand type reference collection.
+        /// List of all hand types in the system.
+        /// </summary>
+        /// <returns>Collection of hand types.</returns>
         private ICollection<HandType> BuildHandTypeReferenceCollection()
         {
             var handRef = new List<HandType>()

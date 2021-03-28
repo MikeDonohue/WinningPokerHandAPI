@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Poker.API.Helpers
 {
-    //Not my code class taken from PluralSight.com written by Kevin Dockx
+    //Not my code class taken from PluralSight.com Advanced Restful API Course
+    //written by Kevin Dockx
     public class ArrayModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)

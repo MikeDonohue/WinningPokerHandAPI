@@ -10,7 +10,7 @@ using Poker.API.DbContexts;
 namespace Poker.API.Migrations
 {
     [DbContext(typeof(PokerHandsContext))]
-    [Migration("20210327201831_ReferenceTableMigration")]
+    [Migration("20210328163437_ReferenceTableMigration")]
     partial class ReferenceTableMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,15 +65,51 @@ namespace Poker.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d28888e9-2ba9-473a-a40f-e38cb54f9b35"),
+                            Id = new Guid("a9ff5f60-3500-4311-bdac-3faacdeb92b1"),
                             Card1 = "AH",
                             Card2 = "AS",
                             Card3 = "AD",
                             Card4 = "AC",
                             Card5 = "2H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 27, 16, 18, 31, 372, DateTimeKind.Unspecified).AddTicks(1403), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 332, DateTimeKind.Unspecified).AddTicks(7542), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Berry",
-                            Type = "4kind"
+                            Type = "Four of a Kind"
+                        },
+                        new
+                        {
+                            Id = new Guid("8d6e84de-47ce-4561-9a41-5215eb26526b"),
+                            Card1 = "KC",
+                            Card2 = "2C",
+                            Card3 = "3C",
+                            Card4 = "4C",
+                            Card5 = "8C",
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8858), new TimeSpan(0, -4, 0, 0, 0)),
+                            PlayerName = "Jerry",
+                            Type = "Flush"
+                        },
+                        new
+                        {
+                            Id = new Guid("7d6e84de-47ce-4561-9a41-5215eb26526b"),
+                            Card1 = "KH",
+                            Card2 = "2H",
+                            Card3 = "3H",
+                            Card4 = "4H",
+                            Card5 = "9H",
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8952), new TimeSpan(0, -4, 0, 0, 0)),
+                            PlayerName = "Jerry",
+                            Type = "Flush"
+                        },
+                        new
+                        {
+                            Id = new Guid("6d6e84de-47ce-4561-9a41-5215eb26526b"),
+                            Card1 = "QC",
+                            Card2 = "2D",
+                            Card3 = "7C",
+                            Card4 = "5S",
+                            Card5 = "5H",
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8965), new TimeSpan(0, -4, 0, 0, 0)),
+                            PlayerName = "Jerry",
+                            Type = "Pair"
                         });
                 });
 #pragma warning restore 612, 618

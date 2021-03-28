@@ -1,4 +1,4 @@
-﻿namespace Poker.API.Helpers
+﻿namespace Poker.API.Services.HandComparisonBL
 {
     public class HandType
     {

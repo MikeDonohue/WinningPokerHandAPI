@@ -1,5 +1,5 @@
 using Poker.API.DataObjects.Entities;
-using Poker.API.Helpers;
+using Poker.API.Services.HandComparisonBL;
 using System;
 using Xunit;
 
@@ -12,7 +12,6 @@ namespace Poker.API.Test.HelperTests
         public void CreateHandTypeCalculator()
         {
             HandTypeCalculator sut = new HandTypeCalculator();
-
             Assert.IsType<HandTypeCalculator>(sut);
         }
 
@@ -20,8 +19,6 @@ namespace Poker.API.Test.HelperTests
         public void NotAllowNullPokerHand()
         {
             HandTypeCalculator sut = new HandTypeCalculator();
-
-            // Assert.Throws<ArgumentNullException>(() => sut.Create(null));
             Assert.Throws<ArgumentNullException>("hand", () => sut.GetHandType(null));
         }
 
