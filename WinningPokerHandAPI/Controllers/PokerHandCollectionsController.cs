@@ -6,20 +6,16 @@ using Poker.API.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Poker.API.DataObjects.Entities;
-using System.Threading.Tasks;
 
 namespace Poker.API.Controllers
 {
     [ApiController]
-    [Route("pokerHandCollections")]
+    [Route("pokerhandcollections")]
     public class PokerHandCollectionsController : ControllerBase
     {
         private readonly IPokerHandsService _pokerHandsService;
-        private readonly IMapper _mapper;
 
-        public PokerHandCollectionsController(IPokerHandsService pokerHandsService,
-            IMapper mapper)
+        public PokerHandCollectionsController(IPokerHandsService pokerHandsService)
         {
             _pokerHandsService = pokerHandsService ??
                 throw new ArgumentNullException(nameof(PokerHandsService));
@@ -44,7 +40,6 @@ namespace Poker.API.Controllers
 
             return Ok(pokerHandDtos);
         }
-
 
         [HttpPost]
         public ActionResult<IEnumerable<PokerHandDto>> CreatePokerHandCollection(

@@ -15,6 +15,7 @@ namespace Poker.API.Services
         private readonly IPokerHandsRepository _pokerHandsRepository;
         private readonly IMapper _mapper;
         private readonly HandTypeCalculator _handTypeCalculator;
+        private readonly HandComparer _handComparer;
 
         public PokerHandsService(IPokerHandsRepository pokerHandsRepository,
            IMapper mapper)
@@ -24,6 +25,7 @@ namespace Poker.API.Services
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
             _handTypeCalculator = new HandTypeCalculator();
+            _handComparer = new HandComparer();
         }
 
         public IEnumerable<PokerHandDto> AddPokerHands(IEnumerable<PokerHandForCreationDto> pokerHandDtos)
@@ -34,6 +36,17 @@ namespace Poker.API.Services
                 pokerHandDtosToReturn.Add(AddPokerHand(pokerHandDto));
             }
             return pokerHandDtosToReturn;
+        }
+
+        public IEnumerable<PokerHandDto> GetWinningPokerHands(IEnumerable<Guid> pokerHandIds)
+        {
+            List<PokerHandDto> handsToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandId in pokerHandIds)
+            {
+                handsToReturn.Add(GetPokerHand(pokerHandId));
+            }
+            handsToReturn = _handComparer.GetWinningHand(handsToReturn);
+            return handsToReturn;
         }
 
         public IEnumerable<PokerHandDto> GetPokerHands(IEnumerable<Guid> pokerHandIds)

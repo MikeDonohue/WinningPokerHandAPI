@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Poker.API.DataObjects.Dtos;
 using Poker.API.DataObjects.Entities;
 
 namespace Poker.API.Helpers
@@ -18,10 +19,10 @@ namespace Poker.API.Helpers
             _handTypes = new HandTypeCollection();
         }
 
-        public List<PokerHand> GetWinningHand(List<PokerHand> hands)
+        public List<PokerHandDto> GetWinningHand(List<PokerHandDto> hands)
         {
             //first winner to first item in list
-            List<PokerHand> winners = new List<PokerHand> { hands[0] };
+            List<PokerHandDto> winners = new List<PokerHandDto> { hands[0] };
             var winnerRank = _handTypes.GetHandTypeByTypeName(winners[0].Type).WinPriority;
 
             for (int i = 1; i < hands.Count(); i++)
@@ -30,7 +31,7 @@ namespace Poker.API.Helpers
                 if (currentRank < winnerRank)
                 {
                     winnerRank = currentRank;
-                    winners = new List<PokerHand> { hands[i] };
+                    winners = new List<PokerHandDto> { hands[i] };
                 }
                 if(currentRank == winnerRank)
                 {
@@ -41,7 +42,7 @@ namespace Poker.API.Helpers
         }
 
         //compare kickers
-        private List<PokerHand> CompareKickers(List<PokerHand> currentWinners, PokerHand challenger)
+        private List<PokerHandDto> CompareKickers(List<PokerHandDto> currentWinners, PokerHandDto challenger)
         {
             //if there is more than one currentWinner it is becuase there is already a tie.
             //Therefore the hands are the same so only one needs to be compared
@@ -62,7 +63,7 @@ namespace Poker.API.Helpers
                 //hand2 has better kicker
                 else if (cardsInHand1[i].Rank < cardsInHand1[i].Rank)
                 {
-                    return new List<PokerHand> { challenger };
+                    return new List<PokerHandDto> { challenger };
                 }
             }
             //hands are the same. Pot will be chopped.
@@ -70,7 +71,7 @@ namespace Poker.API.Helpers
             return currentWinners;
         }
 
-        private List<Card> GetCardListFromHand(PokerHand hand)
+        private List<Card> GetCardListFromHand(PokerHandDto hand)
         {
             List<Card> cardsInHand = new List<Card>();
             cardsInHand.Add(_cardDict.GetCardInfo(hand.Card1));
