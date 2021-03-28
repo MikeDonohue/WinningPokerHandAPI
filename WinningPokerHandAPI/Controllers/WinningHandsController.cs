@@ -28,6 +28,11 @@ namespace Poker.API.Controllers
                 throw new ArgumentNullException(nameof(PokerHandsService));
         }
 
+        /// <summary>
+        /// Gets the winning poker hands.
+        /// </summary>
+        /// <param name="ids">The ids.</param>
+        /// <returns>IActionResult.</returns>
         [HttpGet(Name = "GetWinningPokerHands")]
         public IActionResult GetWinningPokerHands(
         [FromRoute]

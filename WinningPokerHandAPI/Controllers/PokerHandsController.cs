@@ -18,8 +18,7 @@ namespace Poker.API.Controllers
 
         public PokerHandsController(IPokerHandsService PokerHandsService)
         {
-            _pokerHandsService = PokerHandsService ??
-                throw new ArgumentNullException(nameof(PokerHandsService));
+            _pokerHandsService = PokerHandsService ?? throw new ArgumentNullException(nameof(PokerHandsService));
         }
 
         #region Http Requests         
@@ -71,8 +70,7 @@ namespace Poker.API.Controllers
             }
 
             //Generate Links to return to consumer
-            var linkedResourceToReturn = savedHand.ShapeData(null)
-                as IDictionary<string, object>;
+            var linkedResourceToReturn = savedHand.ShapeData(null) as IDictionary<string, object>;
             linkedResourceToReturn.Add("links", CreateLinksForPokerHand(savedHand.Id, "self"));
 
             //return 200 status code
@@ -91,14 +89,11 @@ namespace Poker.API.Controllers
             var pokerHandCreated = _pokerHandsService.AddPokerHand(pokerHandDto);
 
             //Generate Links to return to consumer
-            var linkedResourceToReturn = pokerHandCreated.ShapeData(null)
-                as IDictionary<string, object>;
+            var linkedResourceToReturn = pokerHandCreated.ShapeData(null) as IDictionary<string, object>;
             linkedResourceToReturn.Add("links", CreateLinksForPokerHand(pokerHandCreated.Id, "GetPokerHand"));
 
             //return response status code 201 successfully created
-            return CreatedAtRoute("GetPokerHand",
-                new { pokerHandId = pokerHandCreated.Id },
-                linkedResourceToReturn);
+            return CreatedAtRoute("GetPokerHand", new { pokerHandId = pokerHandCreated.Id }, linkedResourceToReturn);
         }
 
         /// <summary>

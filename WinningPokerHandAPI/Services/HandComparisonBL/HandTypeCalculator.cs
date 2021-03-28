@@ -123,6 +123,11 @@ namespace Poker.API.Services.HandComparisonBL
             return _handTypes.GetHandTypeByTypeName("High Card");
         }
 
+        /// <summary>
+        /// Determines whether [the specified hand] [is a straight].
+        /// </summary>
+        /// <param name="hand">The hand.</param>
+        /// <returns><c>true</c> if [the specified hand] [is a straight]; otherwise, <c>false</c>.</returns>
         private bool IsHandStraight(List<Card> hand)
         {
             List<Card> orderedHand = hand.OrderByDescending(c => c.Rank).ToList();
@@ -137,6 +142,11 @@ namespace Poker.API.Services.HandComparisonBL
             return true;
         }
 
+        /// <summary>
+        /// Determines whether [the specified hand] is a flush.
+        /// </summary>
+        /// <param name="hand">The hand.</param>
+        /// <returns><c>true</c> if [the specified hand] is a flush; otherwise, <c>false</c>.</returns>
         private bool IsHandFlush(List<Card> hand)
         {
             string highestCardSuit = hand[0].Suit;
@@ -147,7 +157,6 @@ namespace Poker.API.Services.HandComparisonBL
                     return false;
                 }
             }
-
             return true;
         }
 
