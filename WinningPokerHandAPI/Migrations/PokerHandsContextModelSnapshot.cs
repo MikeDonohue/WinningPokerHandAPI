@@ -69,7 +69,7 @@ namespace Poker.API.Migrations
                             Card3 = "AD",
                             Card4 = "AC",
                             Card5 = "2H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 332, DateTimeKind.Unspecified).AddTicks(7542), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 506, DateTimeKind.Unspecified).AddTicks(8130), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Berry",
                             Type = "Four of a Kind"
                         },
@@ -81,7 +81,7 @@ namespace Poker.API.Migrations
                             Card3 = "3C",
                             Card4 = "4C",
                             Card5 = "8C",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8858), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 508, DateTimeKind.Unspecified).AddTicks(9326), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Jerry",
                             Type = "Flush"
                         },
@@ -93,7 +93,7 @@ namespace Poker.API.Migrations
                             Card3 = "3H",
                             Card4 = "4H",
                             Card5 = "9H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8952), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 508, DateTimeKind.Unspecified).AddTicks(9419), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Jerry",
                             Type = "Flush"
                         },
@@ -105,7 +105,7 @@ namespace Poker.API.Migrations
                             Card3 = "7C",
                             Card4 = "5S",
                             Card5 = "5H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8965), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 508, DateTimeKind.Unspecified).AddTicks(9431), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Jerry",
                             Type = "Pair"
                         });

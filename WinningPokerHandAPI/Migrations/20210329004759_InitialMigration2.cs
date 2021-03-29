@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Poker.API.Migrations
 {
-    public partial class ReferenceTableMigration : Migration
+    public partial class InitialMigration2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,10 +31,10 @@ namespace Poker.API.Migrations
                 columns: new[] { "Id", "Card1", "Card2", "Card3", "Card4", "Card5", "DateCreated", "PlayerName", "Type" },
                 values: new object[,]
                 {
-                    { new Guid("a9ff5f60-3500-4311-bdac-3faacdeb92b1"), "AH", "AS", "AD", "AC", "2H", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 332, DateTimeKind.Unspecified).AddTicks(7542), new TimeSpan(0, -4, 0, 0, 0)), "Berry", "Four of a Kind" },
-                    { new Guid("8d6e84de-47ce-4561-9a41-5215eb26526b"), "KC", "2C", "3C", "4C", "8C", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8858), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Flush" },
-                    { new Guid("7d6e84de-47ce-4561-9a41-5215eb26526b"), "KH", "2H", "3H", "4H", "9H", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8952), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Flush" },
-                    { new Guid("6d6e84de-47ce-4561-9a41-5215eb26526b"), "QC", "2D", "7C", "5S", "5H", new DateTimeOffset(new DateTime(2021, 3, 28, 12, 34, 37, 334, DateTimeKind.Unspecified).AddTicks(8965), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Pair" }
+                    { new Guid("a9ff5f60-3500-4311-bdac-3faacdeb92b1"), "AH", "AS", "AD", "AC", "2H", new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 506, DateTimeKind.Unspecified).AddTicks(8130), new TimeSpan(0, -4, 0, 0, 0)), "Berry", "Four of a Kind" },
+                    { new Guid("8d6e84de-47ce-4561-9a41-5215eb26526b"), "KC", "2C", "3C", "4C", "8C", new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 508, DateTimeKind.Unspecified).AddTicks(9326), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Flush" },
+                    { new Guid("7d6e84de-47ce-4561-9a41-5215eb26526b"), "KH", "2H", "3H", "4H", "9H", new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 508, DateTimeKind.Unspecified).AddTicks(9419), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Flush" },
+                    { new Guid("6d6e84de-47ce-4561-9a41-5215eb26526b"), "QC", "2D", "7C", "5S", "5H", new DateTimeOffset(new DateTime(2021, 3, 28, 20, 47, 59, 508, DateTimeKind.Unspecified).AddTicks(9431), new TimeSpan(0, -4, 0, 0, 0)), "Jerry", "Pair" }
                 });
         }
 

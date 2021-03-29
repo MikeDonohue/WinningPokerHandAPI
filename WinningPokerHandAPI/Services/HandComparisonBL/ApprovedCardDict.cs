@@ -33,9 +33,19 @@ namespace Poker.API.Services.HandComparisonBL
             }
             else
             {
-                throw new ArgumentException(String.Format("{0} is not an approved card.", cardText),
-                                      "cardText");
+                throw new ArgumentException(String.Format("{0} is not an approved card.", cardText), "cardText");
             }
+        }
+
+        /// <summary>
+        /// Determines whether [is card in dictionary] [the specified card text].
+        /// </summary>
+        /// <param name="cardText">The card text.</param>
+        /// <returns><c>true</c> if [is card in dictionary] [the specified card text]; otherwise, <c>false</c>.</returns>
+        public bool IsCardInDict(string cardText)
+        {
+            bool isInDict = _cardDict.Any(p => p.Key == cardText);
+            return isInDict;
         }
 
         /// <summary>
