@@ -29,3 +29,5 @@ Caching:
 Still to be implemented but coming soon!
 
 Testing this API for yourself? Please see my included postman test suite. 
+
+I used GitHub's built in ticketing system when working on this project to track my commits against. Feel free to look at the projects tab to see for yourself. 
