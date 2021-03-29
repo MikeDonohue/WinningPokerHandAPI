@@ -77,8 +77,10 @@ namespace Poker.API.DbContexts
             CreateTestPokerHandDto("5c06ab27-125f-4a9c-aa0a-f1695aef4271", "Phil Hellmuth", "High Card", "2S", "7C", "6S", "QD", "4C"),
             CreateTestPokerHandDto("28da5c8d-1577-4bd5-9210-73f859fd8533", "Tony G", "High Card", "2H", "7D", "6D", "QC", "4S"),
             CreateTestPokerHandDto("ab28069b-97a6-408d-afee-81faf0360427", "Daniel Negranu", "Full House", "2D", "2H", "2D", "10D", "10H"),
-            CreateTestPokerHandDto("9611fc8d-956e-462a-b1b7-1c30f6cc601d", "Phil Hellmuth", "Three of a Kind", "4S", "4C", "4S", "QD", "5C"),
-            CreateTestPokerHandDto("93767f99-7c0a-44af-9930-93ad5e323021", "Tony G", "Two Pair", "8H", "8D", "9D", "9C", "6H"));
+            CreateTestPokerHandDto("9611fc8d-956e-462a-b1b7-1c30f6cc601d", "Phil Hellmuth", "Three of a Kind", "4S", "4C", "4D", "QD", "5C"),
+            CreateTestPokerHandDto("93767f99-7c0a-44af-9930-93ad5e323021", "Tony G", "Two Pair", "8H", "8D", "9D", "9C", "6H"),
+            CreateTestPokerHandDto("655861ee-8a2d-4e8b-9d43-34b050150f11", "Phil Hellmuth", "Pair", "4S", "4C", "6S", "QD", "5C"),
+            CreateTestPokerHandDto("5a8222f5-114a-4fd0-b7fb-f28b40796b2e", "Tony G", "Pair", "2H", "8D", "9D", "10C", "8H"));
 
             base.OnModelCreating(modelBuilder);
         }

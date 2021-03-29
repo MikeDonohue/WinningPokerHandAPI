@@ -32,26 +32,7 @@ namespace Poker.API.Services.HandComparisonBL
                 throw new ArgumentNullException(nameof(hand));
             }
 
-            List<Card> cardsInHand = new List<Card>();
-            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card1));
-            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card2));
-            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card3));
-            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card4));
-            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card5));
-
-            //key is Rank. Value is frequency
-            Dictionary<int, int> repeatedHandRanks = new Dictionary<int, int>();
-            foreach (var card in cardsInHand)
-            {
-                if (repeatedHandRanks.ContainsKey(card.Rank))
-                {
-                    repeatedHandRanks[card.Rank] = repeatedHandRanks[card.Rank] + 1;
-                }
-                else
-                {
-                    repeatedHandRanks[card.Rank] = 1;
-                }
-            }
+            List<Card> cardsInHand = GetListOfCardsFromHand(hand);
 
             //check if hand is Straight
             bool isHandStraight = IsHandStraight(cardsInHand);
@@ -63,12 +44,8 @@ namespace Poker.API.Services.HandComparisonBL
                 return _handTypes.GetHandTypeByTypeName("Straight Flush");
             }
 
-            //convert to List to use Linq easily to query collection
-            List<CardFrequency> repeatedHandRankList = new List<CardFrequency>();
-            foreach (KeyValuePair<int, int> entry in repeatedHandRanks)
-            {
-                repeatedHandRankList.Add(new CardFrequency() { Rank = entry.Key, Frequency = entry.Value });
-            }
+            //Get list of card frequencies
+            List<CardFrequency> repeatedHandRankList = new CardFrequencyList().GetCardFrequencyList(cardsInHand);
 
             //check for quads
             var quads = repeatedHandRankList.Where(cr => cr.Frequency == 4).FirstOrDefault();
@@ -158,6 +135,22 @@ namespace Poker.API.Services.HandComparisonBL
                 }
             }
             return true;
+        }
+
+        /// <summary>
+        /// Gets the list of cards from hand.
+        /// </summary>
+        /// <param name="hand">The hand.</param>
+        /// <returns>List&lt;Card&gt;.</returns>
+        private List<Card> GetListOfCardsFromHand(PokerHand hand)
+        {
+            List<Card> cardsInHand = new List<Card>();
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card1));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card2));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card3));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card4));
+            cardsInHand.Add(_cardDict.GetCardInfo(hand.Card5));
+            return cardsInHand;
         }
 
     }

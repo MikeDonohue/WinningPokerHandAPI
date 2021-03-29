@@ -10,7 +10,7 @@ using Poker.API.DbContexts;
 namespace Poker.API.Migrations
 {
     [DbContext(typeof(PokerHandsContext))]
-    [Migration("20210329013320_InitialMigration")]
+    [Migration("20210329014529_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,7 +71,7 @@ namespace Poker.API.Migrations
                             Card3 = "AD",
                             Card4 = "AC",
                             Card5 = "2H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 701, DateTimeKind.Unspecified).AddTicks(2128), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 193, DateTimeKind.Unspecified).AddTicks(4585), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Berry",
                             Type = "Four of a Kind"
                         },
@@ -83,7 +83,7 @@ namespace Poker.API.Migrations
                             Card3 = "3C",
                             Card4 = "4C",
                             Card5 = "8C",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(4142), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(4882), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Jerry",
                             Type = "Flush"
                         },
@@ -95,7 +95,7 @@ namespace Poker.API.Migrations
                             Card3 = "3H",
                             Card4 = "4H",
                             Card5 = "9H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(4230), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(4964), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Jerry",
                             Type = "Flush"
                         },
@@ -107,7 +107,7 @@ namespace Poker.API.Migrations
                             Card3 = "7C",
                             Card4 = "5S",
                             Card5 = "5H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(4243), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(4976), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Jerry",
                             Type = "Pair"
                         },
@@ -119,7 +119,7 @@ namespace Poker.API.Migrations
                             Card3 = "6H",
                             Card4 = "QS",
                             Card5 = "4H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5492), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6272), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Daniel Negranu",
                             Type = "High Card"
                         },
@@ -131,7 +131,7 @@ namespace Poker.API.Migrations
                             Card3 = "6S",
                             Card4 = "QD",
                             Card5 = "4C",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5529), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6311), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Phil Hellmuth",
                             Type = "High Card"
                         },
@@ -143,7 +143,7 @@ namespace Poker.API.Migrations
                             Card3 = "6D",
                             Card4 = "QC",
                             Card5 = "4S",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5539), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6322), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Tony G",
                             Type = "High Card"
                         },
@@ -155,7 +155,7 @@ namespace Poker.API.Migrations
                             Card3 = "10H",
                             Card4 = "JH",
                             Card5 = "QH",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5546), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6329), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Phil Hellmuth",
                             Type = "Straight Flush"
                         },
@@ -167,7 +167,7 @@ namespace Poker.API.Migrations
                             Card3 = "3D",
                             Card4 = "4S",
                             Card5 = "5H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5552), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6335), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Daniel Negranu",
                             Type = "Straight"
                         },
@@ -179,7 +179,7 @@ namespace Poker.API.Migrations
                             Card3 = "6H",
                             Card4 = "QS",
                             Card5 = "4H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5559), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6342), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Daniel Negranu",
                             Type = "High Card"
                         },
@@ -191,7 +191,7 @@ namespace Poker.API.Migrations
                             Card3 = "6S",
                             Card4 = "QD",
                             Card5 = "4C",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5566), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6349), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Phil Hellmuth",
                             Type = "High Card"
                         },
@@ -203,7 +203,7 @@ namespace Poker.API.Migrations
                             Card3 = "6D",
                             Card4 = "QC",
                             Card5 = "4S",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5572), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6355), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Tony G",
                             Type = "High Card"
                         },
@@ -215,7 +215,7 @@ namespace Poker.API.Migrations
                             Card3 = "6H",
                             Card4 = "10D",
                             Card5 = "4H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5579), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6361), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Daniel Negranu",
                             Type = "High Card"
                         },
@@ -227,7 +227,7 @@ namespace Poker.API.Migrations
                             Card3 = "6S",
                             Card4 = "QD",
                             Card5 = "4C",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5585), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6368), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Phil Hellmuth",
                             Type = "High Card"
                         },
@@ -239,7 +239,7 @@ namespace Poker.API.Migrations
                             Card3 = "6D",
                             Card4 = "QC",
                             Card5 = "4S",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5592), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6374), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Tony G",
                             Type = "High Card"
                         },
@@ -251,7 +251,7 @@ namespace Poker.API.Migrations
                             Card3 = "2D",
                             Card4 = "10D",
                             Card5 = "10H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5599), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6380), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Daniel Negranu",
                             Type = "Full House"
                         },
@@ -260,10 +260,10 @@ namespace Poker.API.Migrations
                             Id = new Guid("9611fc8d-956e-462a-b1b7-1c30f6cc601d"),
                             Card1 = "4S",
                             Card2 = "4C",
-                            Card3 = "4S",
+                            Card3 = "4D",
                             Card4 = "QD",
                             Card5 = "5C",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5606), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6387), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Phil Hellmuth",
                             Type = "Three of a Kind"
                         },
@@ -275,9 +275,33 @@ namespace Poker.API.Migrations
                             Card3 = "9D",
                             Card4 = "9C",
                             Card5 = "6H",
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 33, 19, 703, DateTimeKind.Unspecified).AddTicks(5613), new TimeSpan(0, -4, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6393), new TimeSpan(0, -4, 0, 0, 0)),
                             PlayerName = "Tony G",
                             Type = "Two Pair"
+                        },
+                        new
+                        {
+                            Id = new Guid("655861ee-8a2d-4e8b-9d43-34b050150f11"),
+                            Card1 = "4S",
+                            Card2 = "4C",
+                            Card3 = "6S",
+                            Card4 = "QD",
+                            Card5 = "5C",
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6399), new TimeSpan(0, -4, 0, 0, 0)),
+                            PlayerName = "Phil Hellmuth",
+                            Type = "Pair"
+                        },
+                        new
+                        {
+                            Id = new Guid("5a8222f5-114a-4fd0-b7fb-f28b40796b2e"),
+                            Card1 = "2H",
+                            Card2 = "8D",
+                            Card3 = "9D",
+                            Card4 = "10C",
+                            Card5 = "8H",
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 3, 28, 21, 45, 29, 195, DateTimeKind.Unspecified).AddTicks(6406), new TimeSpan(0, -4, 0, 0, 0)),
+                            PlayerName = "Tony G",
+                            Type = "Pair"
                         });
                 });
 #pragma warning restore 612, 618
