@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "992c389c-856b-4105-867d-90273f2b9274",
+		"name": "WorkingPokerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HighCardVsHighCardVsHighCard_ThreeWayChop",
+			"item": [
+				{
+					"name": "GET pokerhandcollection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "63349",
+							"path": [
+								"pokerhands",
+								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET winningPokerHand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "63349",
+							"path": [
+								"pokerhands",
+								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StraightFlush Vs Flush",
+			"item": [
+				{
+					"name": "GET pokerhandcollection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "63349",
+							"path": [
+								"pokerhands",
+								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET winningPokerHand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "63349",
+							"path": [
+								"pokerhands",
+								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Two Pair vs Three of Kind",
+			"item": [
+				{
+					"name": "GET pokerhandcollection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44395/pokerhandcollections/(93767f99-7c0a-44af-9930-93ad5e323021,9611fc8d-956e-462a-b1b7-1c30f6cc601d)",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44395",
+							"path": [
+								"pokerhandcollections",
+								"(93767f99-7c0a-44af-9930-93ad5e323021,9611fc8d-956e-462a-b1b7-1c30f6cc601d)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET winningPokerHand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "63349",
+							"path": [
+								"pokerhands",
+								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pair vs Pair",
+			"item": [
+				{
+					"name": "GET pokerhandcollection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44395/pokerhandcollections/(655861ee-8a2d-4e8b-9d43-34b050150f11,5a8222f5-114a-4fd0-b7fb-f28b40796b2e)",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44395",
+							"path": [
+								"pokerhandcollections",
+								"(655861ee-8a2d-4e8b-9d43-34b050150f11,5a8222f5-114a-4fd0-b7fb-f28b40796b2e)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET winningPokerHand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.marvin.hateoas+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "63349",
+							"path": [
+								"pokerhands",
+								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET pokerhands (All No Id)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.marvin.hateoas+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands",
+						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET pokerhands (One Id provided)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.marvin.hateoas+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands",
+						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Straight Flush)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (4 of a kind)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Full House)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Flush)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Straight)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Trips)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Two Pair)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (High Card) - Ace",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (High Card) - 10",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"3S\",\n    \"card2\": \"4H\",\n    \"card3\": \"8D\",\n    \"card4\": \"10C\",\n    \"card5\": \"2D\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Invlaid No Name)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Invlaid Repeated Cards)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhands (Invalid card names)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OPTIONS pokerhands",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET pokerhandcollection",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.marvin.hateoas+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands",
+						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET winningPokerHand",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.marvin.hateoas+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands",
+						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST pokerhandcollection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:63349/pokerhands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63349",
+					"path": [
+						"pokerhands"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

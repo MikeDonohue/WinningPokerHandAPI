@@ -86,6 +86,50 @@ namespace Poker.API.Test.HelperTests
         }
 
         [Fact]
+        public void GetWinningHand_BoatVsBoat_PhilWins()
+        {
+            var testHandCalc = new HandComparer();
+            var testPokHand1 = CreateTestPokerHandDto("Daniel Negranu", "Full House", "2D", "7H", "2H", "7D", "2D");
+            var testPokHand2 = CreateTestPokerHandDto("Phil Hellmuth", "Full House", "KS", "9C", "KD", "9D", "KC");
+
+            string expectedWinnerName1 = "Phil Hellmuth";
+
+            var pokerHandReturned = testHandCalc.GetWinningHand(new List<PokerHandDto> { testPokHand1, testPokHand2 });
+            Assert.Single(pokerHandReturned);
+            Assert.Equal(expectedWinnerName1, pokerHandReturned[0].PlayerName);
+        }
+
+        [Fact]
+        public void GetWinningHand_TripsVsTripsVsTrips_DanielWins()
+        {
+            var testHandCalc = new HandComparer();
+            var testPokHand1 = CreateTestPokerHandDto("Daniel Negranu", "Three of a Kind", "AD", "AH", "4H", "10D", "AC");
+            var testPokHand2 = CreateTestPokerHandDto("Phil Hellmuth", "Three of a Kind", "KD", "KH", "JH", "QD", "KC");
+            var testPokHand3 = CreateTestPokerHandDto("Tony G", "Three of a Kind", "2D", "7H", "2H", "8D", "2D");
+
+            string expectedWinnerName1 = "Daniel Negranu";
+
+            var pokerHandReturned = testHandCalc.GetWinningHand(new List<PokerHandDto> { testPokHand1, testPokHand2 });
+            Assert.Single(pokerHandReturned);
+            Assert.Equal(expectedWinnerName1, pokerHandReturned[0].PlayerName);
+        }
+
+        [Fact]
+        public void GetWinningHand_TwoPairVsTwoPairVsTwoPair_PhilWins()
+        {
+            var testHandCalc = new HandComparer();
+            var testPokHand1 = CreateTestPokerHandDto("Tony G", "Two Pair", "2D", "7H", "2H", "7D", "5D");
+            var testPokHand2 = CreateTestPokerHandDto("Phil Hellmuth", "Two Pair", "KD", "KH", "JH", "AC", "AH");
+            var testPokHand3 = CreateTestPokerHandDto("Daniel Negranu", "Two Pair", "AD", "KS", "KC", "10D", "AC"); 
+
+            string expectedWinnerName1 = "Phil Hellmuth";
+
+            var pokerHandReturned = testHandCalc.GetWinningHand(new List<PokerHandDto> { testPokHand1, testPokHand2 });
+            Assert.Single(pokerHandReturned);
+            Assert.Equal(expectedWinnerName1, pokerHandReturned[0].PlayerName);
+        }
+
+        [Fact]
         public void GetWinningHand_HighCardVsHighCardVsHighCard_ThreeWayChopAllWin()
         {
             var testHandCalc = new HandComparer();

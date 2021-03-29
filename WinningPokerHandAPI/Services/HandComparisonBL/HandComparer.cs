@@ -55,7 +55,7 @@ namespace Poker.API.Services.HandComparisonBL
                 }
                 else if(currentWinPriority == winnerWinPriority)
                 {
-                    winners = ResolveCardRankTie(winners, hands[i], currentWinPriority);
+                    winners = ResolveWinPriorityTie(winners, hands[i], currentWinPriority);
                 }
             }
             return winners;
@@ -68,7 +68,7 @@ namespace Poker.API.Services.HandComparisonBL
         /// <param name="challenger">The challenger.</param>
         /// <param name="handWinPriority">The hand win priority.</param>
         /// <returns>List&lt;PokerHandDto&gt;.</returns>
-        private List<PokerHandDto> ResolveCardRankTie(List<PokerHandDto> currentWinners, PokerHandDto challenger, int handWinPriority)
+        private List<PokerHandDto> ResolveWinPriorityTie(List<PokerHandDto> currentWinners, PokerHandDto challenger, int handWinPriority)
         {
             switch (handWinPriority)
             {
