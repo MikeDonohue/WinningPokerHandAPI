@@ -53,7 +53,7 @@ namespace Poker.API.Services.HandComparisonBL
                     winnerRank = currentRank;
                     winners = new List<PokerHandDto> { hands[i] };
                 }
-                if(currentRank == winnerRank)
+                else if(currentRank == winnerRank)
                 {
                     winners = CompareKickers(winners, hands[i]);
                 }

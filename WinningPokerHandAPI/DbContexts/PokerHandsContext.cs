@@ -64,10 +64,39 @@ namespace Poker.API.DbContexts
                 Card3 = "7C",
                 Card4 = "5S",
                 Card5 = "5H"
-            }
-            );
+            },
+            CreateTestPokerHandDto("5832f956-2600-4175-b8f3-7f1df28d8b16", "Daniel Negranu", "High Card", "2D", "7H", "6H", "QS", "4H"),
+            CreateTestPokerHandDto("45aa9d27-16f2-4a81-9528-06fc6393ee5b", "Phil Hellmuth", "High Card", "2S", "7C", "6S", "QD", "4C"),
+            CreateTestPokerHandDto("18888494-243a-4293-b1b2-364c5fade6fa", "Tony G", "High Card", "3H", "7D", "6D", "QC", "4S"),
+            CreateTestPokerHandDto("4d42a8e7-c322-4dd5-9b0e-444600da70d4", "Phil Hellmuth", "Straight Flush", "AH", "KH", "10H", "JH", "QH"),
+            CreateTestPokerHandDto("9051d0d7-6a10-4c23-8b67-1f48fe798a1d", "Daniel Negranu", "Straight", "2H", "6H", "3D", "4S", "5H"),
+            CreateTestPokerHandDto("82029ec5-4331-44f3-b73f-8ecc10826b92", "Daniel Negranu", "High Card", "2D", "7H", "6H", "QS", "4H"),
+            CreateTestPokerHandDto("55744fa9-4334-4e2e-a1ff-70360dd025f7", "Phil Hellmuth", "High Card", "2S", "7C", "6S", "QD", "4C"),
+            CreateTestPokerHandDto("659cf963-4dbd-4053-834f-440ccc402095", "Tony G", "High Card", "2H", "7D", "6D", "QC", "4S"),
+            CreateTestPokerHandDto("a9118362-fb36-4b8a-a657-4d28d673a593", "Daniel Negranu", "High Card", "2D", "7H", "6H", "10D", "4H"),
+            CreateTestPokerHandDto("5c06ab27-125f-4a9c-aa0a-f1695aef4271", "Phil Hellmuth", "High Card", "2S", "7C", "6S", "QD", "4C"),
+            CreateTestPokerHandDto("28da5c8d-1577-4bd5-9210-73f859fd8533", "Tony G", "High Card", "2H", "7D", "6D", "QC", "4S"),
+            CreateTestPokerHandDto("ab28069b-97a6-408d-afee-81faf0360427", "Daniel Negranu", "Full House", "2D", "2H", "2D", "10D", "10H"),
+            CreateTestPokerHandDto("9611fc8d-956e-462a-b1b7-1c30f6cc601d", "Phil Hellmuth", "Three of a Kind", "4S", "4C", "4S", "QD", "5C"),
+            CreateTestPokerHandDto("93767f99-7c0a-44af-9930-93ad5e323021", "Tony G", "Two Pair", "8H", "8D", "9D", "9C", "6H"));
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        private PokerHand CreateTestPokerHandDto(string guid, string name, string type, string card1, string card2, string card3, string card4, string card5)
+        {
+            return new PokerHand()
+            {
+                Id = Guid.Parse(guid),
+                PlayerName = name,
+                DateCreated = DateTime.Now,
+                Type = type,
+                Card1 = card1,
+                Card2 = card2,
+                Card3 = card3,
+                Card4 = card4,
+                Card5 = card5
+            };
         }
 
     }
