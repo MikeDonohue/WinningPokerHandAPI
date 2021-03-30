@@ -26,7 +26,7 @@ Code on Demand:
 My API only acts when it is prompted to. 
 
 Caching:
-Still to be implemented but coming soon!
+Basic caching implemented. Can be improved via use of etags.
 
 Testing this API for yourself? Please see my included postman test suite. 
 
