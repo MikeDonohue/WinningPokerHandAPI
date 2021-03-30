@@ -54,6 +54,8 @@ namespace Poker.API
 
             app.UseHttpsRedirection();
 
+            app.UseResponseCaching();
+
             app.UseRouting();
 
             app.UseAuthorization();
