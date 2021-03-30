@@ -28,6 +28,7 @@ namespace Poker.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet(Name = "GetAllPokerHands")]
         [HttpHead]
+        [ResponseCache(Duration = 120)]
         public IActionResult GetAllPokerHands()
         {
             //get all poker hands currently saved in the db
@@ -58,6 +59,7 @@ namespace Poker.API.Controllers
         /// <param name="pokerHandId">The poker hand identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{pokerHandId}", Name = "GetPokerHand")]
+        [ResponseCache(Duration = 120)]
         public IActionResult GetPokerHand(Guid pokerHandId)
         {
             //Get poker hand with given guid from the db.

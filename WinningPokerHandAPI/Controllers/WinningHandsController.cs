@@ -34,6 +34,7 @@ namespace Poker.API.Controllers
         /// <param name="ids">The ids.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet(Name = "GetWinningPokerHands")]
+        [ResponseCache(Duration = 120)]
         public IActionResult GetWinningPokerHands(
         [FromRoute]
         [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
