@@ -8,7 +8,7 @@ A ASP.NET CORE Restful API that accepts requests containing poker hands, compare
 What makes this API Restful?
 
 Use of a uniform interface (UI):
-All Https verb work as expected in reguards to their related resource. All resources have their own endpoints. Currently this API only implements GET, and POST but could easily be expanded to intereact with other http verys as the project grows. 
+All Https verb work as expected in reguards to their related resource. All resources have their own endpoints.
 
 Client-server based:
 Seperation of concers is important. This is strictly a server.
