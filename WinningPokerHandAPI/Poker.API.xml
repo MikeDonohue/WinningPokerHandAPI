@@ -1,0 +1,476 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Poker.API</name>
+    </assembly>
+    <members>
+        <member name="M:Poker.API.Controllers.PokerHandCollectionsController.GetPokerHandCollection(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the poker hand collection.
+            </summary>
+            <param name="ids">The ids of the requested hands.</param>
+            <returns>Action result containing a collection of poker hands saved. For each hand the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandCollectionsController.CreatePokerHandCollection(System.Collections.Generic.IEnumerable{Poker.API.DataObjects.Dtos.PokerHandForCreationDto})">
+            <summary>
+            Creates multiple poker hands.
+            </summary>
+            <param name="pokerHandCollection">The poker hand collection.</param>
+            <returns>Action result containing a collection of poker hands saved. For each hand saved the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandCollectionsController.CreateLinksForPokerHandCollections(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto},System.Guid,System.String)">
+            <summary>
+            Creates the links for poker hand collections.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>IEnumerable&lt;LinkDto&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandsController.GetAllPokerHands">
+            <summary>
+            Gets all poker hands.
+            </summary>
+            <returns>Action result containing a list of pokerhands saved.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandsController.GetPokerHand(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>Action result containing the name of poker player and cards in hand.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandsController.CreatePokerHand(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
+            <summary>
+            Creates the poker hand.
+            </summary>
+            <param name="pokerHandDto">Poker player name and 5 cards in hand.</param>
+            <returns>Action result containing the details of the hand successully saved on the server including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandsController.GetPokerHandOptions">
+            <summary>
+            Gets the poker hand options.
+            </summary>
+            <returns>Action result containing Http actions available for this resource.</returns>
+        </member>
+        <member name="M:Poker.API.Controllers.PokerHandsController.CreateLinksForPokerHand(System.Guid,System.String)">
+            <summary>
+            Creates the links for poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>Links of follow on actions that can be performed with the current response.</returns>
+        </member>
+        <member name="T:Poker.API.Controllers.WinningHandsController">
+            <summary>
+            While this is not a resource I believe this operation belongs in its own controller. This is becuase I dont want to run this 
+            every time I return a collection or handle through sorting parameters. While a controller of this 
+            type is not strictly rest since it doesnt map to a resource I think this is the correct move.
+            </summary>
+        </member>
+        <member name="M:Poker.API.Controllers.WinningHandsController.GetWinningPokerHands(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the winning poker hands.
+            </summary>
+            <param name="ids">The ids of the hands to compare.</param>
+            <returns>Action result containing a collection of poker hands that win. Usually one hand but in case of a tie multiple will be returned. For each hand the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandDto.Id">
+            <summary>
+            The unique id of the poker hand.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandDto.DateCreated">
+            <summary>
+            Datetime of when the poker hand was created.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandDto.Type">
+            <summary>
+            The type of hand.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandForCreationDto.PlayerName">
+            <summary>
+            Name of the player.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandForCreationDto.Card1">
+            <summary>
+            First card in poker hand.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandForCreationDto.Card2">
+            <summary>
+            Second card in poker hand.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandForCreationDto.Card3">
+            <summary>
+            Third card in poker hand.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandForCreationDto.Card4">
+            <summary>
+            Fourth card in poker hand.
+            </summary>
+        </member>
+        <member name="P:Poker.API.DataObjects.Dtos.PokerHandForCreationDto.Card5">
+            <summary>
+            Fifth card in poker hand.
+            </summary>
+        </member>
+        <member name="T:Poker.API.DataObjects.ValidationAttributes.CardsMustBeApprovedAttribute">
+            <summary>
+            Class CardsMustBeApprovedAttribute. Checks to see if object is present in approved card dict.
+            Implements the <see cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+        </member>
+        <member name="T:Poker.API.DataObjects.ValidationAttributes.CardsMustBeUniqueAttribute">
+            <summary>
+            Class CardsMustBeUniqueAttribute.
+            Implements the <see cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+        </member>
+        <member name="T:Poker.API.Repositories.IPokerHandsRepository">
+            <summary>
+            Interface IPokerHandsRepository
+            </summary>
+        </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.AddPokerHand(Poker.API.DataObjects.Entities.PokerHand)">
+            <summary>
+            Adds the poker hand.
+            </summary>
+            <param name="pokerHand">The poker hand.</param>
+            <returns>PokerHand.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.GetPokerHand(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>PokerHand.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.GetAllPokerHands">
+            <summary>
+            Gets all poker hands.
+            </summary>
+            <returns>IEnumerable&lt;PokerHand&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.Save">
+            <summary>
+            Saves this instance.
+            </summary>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:Poker.API.Repositories.PokerHandsRepository">
+            <summary>
+            Class PokerHandsRepository.
+            Implements the <see cref="T:Poker.API.Repositories.IPokerHandsRepository" />
+            Implements the <see cref="T:System.IDisposable" />
+            </summary>
+            <seealso cref="T:Poker.API.Repositories.IPokerHandsRepository" />
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.#ctor(Poker.API.DbContexts.PokerHandsContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Poker.API.Repositories.PokerHandsRepository"/> class.
+            </summary>
+            <param name="context">The context.</param>
+            <exception cref="T:System.ArgumentNullException">context</exception>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.AddPokerHand(Poker.API.DataObjects.Entities.PokerHand)">
+            <summary>
+            Adds the poker hand.
+            </summary>
+            <param name="pokerHand">The poker hand.</param>
+            <returns>PokerHand.</returns>
+            <exception cref="T:System.ArgumentNullException">pokerHand</exception>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.GetPokerHand(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>PokerHand.</returns>
+            <exception cref="T:System.ArgumentNullException">pokerHandId</exception>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.GetAllPokerHands">
+            <summary>
+            Gets all poker hands.
+            </summary>
+            <returns>Entity objects of all poker hands in the db.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.Save">
+            <summary>
+            Saves this instance.
+            </summary>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:Poker.API.Services.HandComparisonBL.ApprovedCardDict">
+            <summary>
+            Class used to check is a card is valid and get additional information about the card - rank, suit.
+            Eventually this will be moved to a reference table in the db.
+            </summary>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.ApprovedCardDict.GetCardInfo(System.String)">
+            <summary>
+            Gets the card information.
+            </summary>
+            <param name="cardText">The card text.</param>
+            <returns>Card with rank and suit.</returns>
+            <exception cref="T:System.ArgumentException">cardText</exception>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.ApprovedCardDict.IsCardInDict(System.String)">
+            <summary>
+            Determines whether [is card in dictionary] [the specified card text].
+            </summary>
+            <param name="cardText">The card text.</param>
+            <returns><c>true</c> if [is card in dictionary] [the specified card text]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.ApprovedCardDict.BuildCardDict">
+            <summary>
+            Builds the card dictionary. Essentially generates a deck
+            </summary>
+            <returns>Dictionary of cards.</returns>
+        </member>
+        <member name="T:Poker.API.Services.HandComparisonBL.HandComparer">
+            <summary>
+            Class HandComparer.
+            </summary>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.GetWinningHand(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto})">
+            <summary>
+            Gets the winning hand.
+            </summary>
+            <param name="hands">The poker hands.</param>
+            <returns>List of winning hands. Is a list since ties are possible. Chopped pots.</returns>
+            <exception cref="T:System.ArgumentNullException">hands</exception>
+            <exception cref="T:System.ArgumentException">hands</exception>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.ResolveWinPriorityTie(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto},Poker.API.DataObjects.Dtos.PokerHandDto,System.Int32)">
+            <summary>
+            Compares hands when they are of the same rank.
+            </summary>
+            <param name="currentWinners">The current winners.</param>
+            <param name="challenger">The challenger.</param>
+            <param name="handWinPriority">The hand win priority.</param>
+            <returns>List&lt;PokerHandDto&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.CompareRankRepatedHand(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto},Poker.API.DataObjects.Dtos.PokerHandDto,System.Int32)">
+            <summary>
+            Compares the rank repated hand. (Pair, trips, quads)
+            </summary>
+            <param name="currentWinners">The current winners.</param>
+            <param name="challenger">The challenger.</param>
+            <param name="numberOfRankRepeats">The number of rank repeats.</param>
+            <returns>List&lt;PokerHandDto&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.CompareFullHouse(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto},Poker.API.DataObjects.Dtos.PokerHandDto)">
+            <summary>
+            Compares the full houses.
+            </summary>
+            <param name="currentWinners">The current winners.</param>
+            <param name="challenger">The challenger.</param>
+            <returns>List&lt;PokerHandDto&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.CompareTwoPairs(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto},Poker.API.DataObjects.Dtos.PokerHandDto)">
+            <summary>
+            Compares the full houses.
+            </summary>
+            <param name="currentWinners">The current winners.</param>
+            <param name="challenger">The challenger.</param>
+            <returns>List&lt;PokerHandDto&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.CompareKickers(System.Collections.Generic.List{Poker.API.DataObjects.Dtos.PokerHandDto},Poker.API.DataObjects.Dtos.PokerHandDto)">
+            <summary>
+            Compares the kickers. This method works for High Card, Flush, Straight, and Straight Flush.
+            Also called to Compare kickers on four of kind, three of kind, two pair, and pair
+            </summary>
+            <param name="currentWinners">The current winners.</param>
+            <param name="challenger">The challenger.</param>
+            <returns>List of winners.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandComparer.GetCardListFromHand(Poker.API.DataObjects.Dtos.PokerHandDto)">
+            <summary>
+            Gets the card list with additional info from hand.
+            Orders list from highest to lowest value cards
+            </summary>
+            <param name="hand">The hand.</param>
+            <returns>List of cards</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCalculator.GetHandType(Poker.API.DataObjects.Entities.PokerHand)">
+            <summary>
+            Gets the type of the hand.
+            </summary>
+            <param name="hand">The hand.</param>
+            <returns>HandType.</returns>
+            <exception cref="T:System.ArgumentNullException">Provided poker hand is null.</exception>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCalculator.IsHandStraight(System.Collections.Generic.List{Poker.API.Services.HandComparisonBL.Card})">
+            <summary>
+            Determines whether [the specified hand] [is a straight].
+            </summary>
+            <param name="hand">The hand.</param>
+            <returns><c>true</c> if [the specified hand] [is a straight]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCalculator.IsHandFlush(System.Collections.Generic.List{Poker.API.Services.HandComparisonBL.Card})">
+            <summary>
+            Determines whether [the specified hand] is a flush.
+            </summary>
+            <param name="hand">The hand.</param>
+            <returns><c>true</c> if [the specified hand] is a flush; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCalculator.GetListOfCardsFromHand(Poker.API.DataObjects.Entities.PokerHand)">
+            <summary>
+            Gets the list of cards from hand.
+            </summary>
+            <param name="hand">The hand.</param>
+            <returns>List&lt;Card&gt;.</returns>
+        </member>
+        <member name="T:Poker.API.Services.HandComparisonBL.HandTypeCollection">
+            <summary>
+            Class HandTypeCollection.
+            ToDo: move to reference table in db.
+            </summary>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCollection.GetHandTypeByPriority(System.Int32)">
+            <summary>
+            Gets the hand type by priority.
+            </summary>
+            <param name="priority">The priority.</param>
+            <returns>HandType.</returns>
+            <exception cref="T:System.ArgumentException">priority must be between 1 to 9</exception>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCollection.GetHandTypeByTypeName(System.String)">
+            <summary>
+            Gets the name of the hand type by type.
+            </summary>
+            <param name="typeName">Name of the type.</param>
+            <returns>HandType.</returns>
+            <exception cref="T:System.ArgumentNullException">Please provide a non-empty hand type name.</exception>
+            <exception cref="T:System.ArgumentException">Provide a valid hand type.</exception>
+        </member>
+        <member name="M:Poker.API.Services.HandComparisonBL.HandTypeCollection.BuildHandTypeReferenceCollection">
+            <summary>
+            Builds the hand type reference collection.
+            List of all hand types in the system.
+            </summary>
+            <returns>Collection of hand types.</returns>
+        </member>
+        <member name="T:Poker.API.Services.IPokerHandsService">
+            <summary>
+            Interface for IPokerHandsService. 
+            </summary>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetPokerHand(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>PokerHandDto of hand with provided Id</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetPokerHands(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the poker hands.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>List of poker hands with provided ids</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetAllPokerHands">
+            <summary>
+            Gets all poker hands. Todo: add paging.
+            </summary>
+            <returns>List of all hands in Db.</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetWinningPokerHands(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the winning poker hands.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>List of winning poker hands with provided ids. Can be more than one in case of a tie</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.AddPokerHand(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
+            <summary>
+            Saves the poker hand to the db.
+            </summary>
+            <param name="pokerHandDto">The poker hand dto that will be saved.</param>
+            <returns>The poker hand dto that was saved.</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.AddPokerHands(System.Collections.Generic.IEnumerable{Poker.API.DataObjects.Dtos.PokerHandForCreationDto})">
+            <summary>
+            Saves the poker hands to the database.
+            </summary>
+            <param name="pokerHandDtos">The poker hand dtos to save.</param>
+            <returns>The poker hand dto that were saved to the db.</returns>
+        </member>
+        <member name="T:Poker.API.Services.PokerHandsService">
+            <summary>
+            Class PokerHandsService. Business Logic for Poker Hands. 
+            Used for Mapping and calling into Hand Comparison classes to determine winners or hand types.
+            Implements the <see cref="T:Poker.API.Services.IPokerHandsService" />
+            </summary>
+            <seealso cref="T:Poker.API.Services.IPokerHandsService" />
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.#ctor(Poker.API.Repositories.IPokerHandsRepository,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Poker.API.Services.PokerHandsService"/> class.
+            </summary>
+            <param name="pokerHandsRepository">The poker hands repository.</param>
+            <param name="mapper">The mapper.</param>
+            <exception cref="T:System.ArgumentNullException">pokerHandsRepository</exception>
+            <exception cref="T:System.ArgumentNullException">mapper</exception>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetPokerHand(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>PokerHandDto of hand with provided Id</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetPokerHands(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the poker hands.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>List of poker hands with provided ids</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetWinningPokerHands(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the winning poker hands.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>List of winning poker hands with provided ids. Can be more than one in case of a tie</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetAllPokerHands">
+            <summary>
+            Gets all poker hands. Todo: add paging.
+            </summary>
+            <returns>List of all hands in Db.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.AddPokerHand(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
+            <summary>
+            Saves the poker hand to the db.
+            </summary>
+            <param name="pokerHandDto">The poker hand dto that will be saved.</param>
+            <returns>The poker hand dto that was saved.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.AddPokerHands(System.Collections.Generic.IEnumerable{Poker.API.DataObjects.Dtos.PokerHandForCreationDto})">
+            <summary>
+            Saves the poker hands to the database.
+            </summary>
+            <param name="pokerHandDtos">The poker hand dtos to save.</param>
+            <returns>The poker hand dto that were saved to the db.</returns>
+        </member>
+    </members>
+</doc>

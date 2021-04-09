@@ -10,19 +10,41 @@ namespace Poker.API.DataObjects.Dtos
     
     public class PokerHandForCreationDto : IValidatableObject
     {
+        /// <summary>
+        /// Name of the player.
+        /// </summary>
         [MaxLength(100, ErrorMessage = "Player Name can be no longer than 100 characters.")]
         [MinLength(4, ErrorMessage = "Player Name must be at least 4 characters long.")]
         [Required(ErrorMessage = "Player Name is a required field.")]
         public string PlayerName { get; set; }
 
+        /// <summary>
+        /// First card in poker hand.
+        /// </summary>
         [Required]
         public string Card1 { get; set; }
+
+        /// <summary>
+        /// Second card in poker hand.
+        /// </summary>
         [Required]
         public string Card2 { get; set; }
+
+        /// <summary>
+        /// Third card in poker hand.
+        /// </summary>
         [Required]
         public string Card3 { get; set; }
+
+        /// <summary>
+        /// Fourth card in poker hand.
+        /// </summary>
         [Required]
         public string Card4 { get; set; }
+
+        /// <summary>
+        /// Fifth card in poker hand.
+        /// </summary>
         [Required]
         public string Card5 { get; set; }
 

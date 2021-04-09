@@ -31,8 +31,8 @@ namespace Poker.API.Controllers
         /// <summary>
         /// Gets the winning poker hands.
         /// </summary>
-        /// <param name="ids">The ids.</param>
-        /// <returns>IActionResult.</returns>
+        /// <param name="ids">The ids of the hands to compare.</param>
+        /// <returns>Action result containing a collection of poker hands that win. Usually one hand but in case of a tie multiple will be returned. For each hand the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [HttpGet(Name = "GetWinningPokerHands")]
         [ResponseCache(Duration = 120)]
         public IActionResult GetWinningPokerHands(

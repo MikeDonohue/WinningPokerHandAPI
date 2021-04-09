@@ -28,8 +28,8 @@ namespace Poker.API.Controllers
         /// <summary>
         /// Gets the poker hand collection.
         /// </summary>
-        /// <param name="ids">The ids.</param>
-        /// <returns>IActionResult.</returns>
+        /// <param name="ids">The ids of the requested hands.</param>
+        /// <returns>Action result containing a collection of poker hands saved. For each hand the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [HttpGet("({ids})", Name ="GetPokerHandCollection")]
         [ResponseCache(Duration = 120)]
         public IActionResult GetPokerHandCollection(
@@ -71,10 +71,10 @@ namespace Poker.API.Controllers
         }
 
         /// <summary>
-        /// Creates the poker hand collection.
+        /// Creates multiple poker hands.
         /// </summary>
         /// <param name="pokerHandCollection">The poker hand collection.</param>
-        /// <returns>ActionResult&lt;IEnumerable&lt;PokerHandDto&gt;&gt;.</returns>
+        /// <returns>Action result containing a collection of poker hands saved. For each hand saved the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [HttpPost(Name="CreatePokerHandCollection")]
         public ActionResult<IEnumerable<PokerHandDto>> CreatePokerHandCollection(
             IEnumerable<PokerHandForCreationDto> pokerHandCollection)

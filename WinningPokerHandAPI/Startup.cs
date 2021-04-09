@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Poker.API.DbContexts;
 using Poker.API.Repositories;
 using Poker.API.Services;
+using System.Reflection;
+using System.IO;
 
 namespace Poker.API
 {
@@ -42,6 +44,19 @@ namespace Poker.API
                 options.UseSqlServer(
                     @"Server=(localdb)\mssqllocaldb;Database=PokerDB;Trusted_Connection=True;");
             });
+
+            services.AddSwaggerGen(setupAction =>
+            {
+                setupAction.SwaggerDoc(
+                    "PokerAPISpecification",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "Poker API",
+                        Version = "1.0"
+                    });
+                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlCommentsFile));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +68,15 @@ namespace Poker.API
             }
 
             app.UseHttpsRedirection();
+
+            //putting after UseHttpsRedirection ensures any call to a non-encryted open api endpoint will be redirected to the encrypted version.
+            app.UseSwagger();
+
+            app.UseSwaggerUI(setupAction =>
+            {
+                setupAction.SwaggerEndpoint("/swagger/PokerAPISpecification/swagger.json", "Poker API");
+                setupAction.RoutePrefix = "";
+            });
 
             app.UseResponseCaching();
 

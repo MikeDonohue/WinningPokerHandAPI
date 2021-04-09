@@ -25,7 +25,7 @@ namespace Poker.API.Controllers
         /// <summary>
         /// Gets all poker hands.
         /// </summary>
-        /// <returns>IActionResult.</returns>
+        /// <returns>Action result containing a list of pokerhands saved.</returns>
         [HttpGet(Name = "GetAllPokerHands")]
         [HttpHead]
         [ResponseCache(Duration = 120)]
@@ -57,7 +57,7 @@ namespace Poker.API.Controllers
         /// Gets the poker hand.
         /// </summary>
         /// <param name="pokerHandId">The poker hand identifier.</param>
-        /// <returns>IActionResult.</returns>
+        /// <returns>Action result containing the name of poker player and cards in hand.</returns>
         [HttpGet("{pokerHandId}", Name = "GetPokerHand")]
         [ResponseCache(Duration = 120)]
         public IActionResult GetPokerHand(Guid pokerHandId)
@@ -82,8 +82,8 @@ namespace Poker.API.Controllers
         /// <summary>
         /// Creates the poker hand.
         /// </summary>
-        /// <param name="pokerHandDto">The poker hand dto.</param>
-        /// <returns>ActionResult&lt;PokerHandDto&gt;.</returns>
+        /// <param name="pokerHandDto">Poker player name and 5 cards in hand.</param>
+        /// <returns>Action result containing the details of the hand successully saved on the server including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [HttpPost(Name = "CreatePokerHand")]
         public ActionResult<PokerHandDto> CreatePokerHand(PokerHandForCreationDto pokerHandDto)
         {
@@ -101,7 +101,7 @@ namespace Poker.API.Controllers
         /// <summary>
         /// Gets the poker hand options.
         /// </summary>
-        /// <returns>IActionResult.</returns>
+        /// <returns>Action result containing Http actions available for this resource.</returns>
         [HttpOptions(Name = "GetPokerHandOptions")]
         public IActionResult GetPokerHandOptions()
         {
@@ -115,7 +115,7 @@ namespace Poker.API.Controllers
         /// Creates the links for poker hand.
         /// </summary>
         /// <param name="pokerHandId">The poker hand identifier.</param>
-        /// <returns>IEnumerable&lt;LinkDto&gt;.</returns>
+        /// <returns>Links of follow on actions that can be performed with the current response.</returns>
         private IEnumerable<LinkDto> CreateLinksForPokerHand(Guid pokerHandId, string relatedMethod)
         {
             var links = new List<LinkDto>();
