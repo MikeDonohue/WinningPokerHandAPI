@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Poker.API.DataObjects.Dtos;
 using Poker.API.Helpers;
@@ -32,6 +33,9 @@ namespace Poker.API.Controllers
         /// <returns>Action result containing a collection of poker hands saved. For each hand the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [HttpGet("({ids})", Name ="GetPokerHandCollection")]
         [ResponseCache(Duration = 120)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetPokerHandCollection(
         [FromRoute]
         [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
@@ -75,6 +79,8 @@ namespace Poker.API.Controllers
         /// </summary>
         /// <param name="pokerHandCollection">The poker hand collection.</param>
         /// <returns>Action result containing a collection of poker hands saved. For each hand saved the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
+        /// 
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [HttpPost(Name="CreatePokerHandCollection")]
         public ActionResult<IEnumerable<PokerHandDto>> CreatePokerHandCollection(
             IEnumerable<PokerHandForCreationDto> pokerHandCollection)

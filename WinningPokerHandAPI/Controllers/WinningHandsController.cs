@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Poker.API.DataObjects.Entities;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Poker.API.Controllers
 {
@@ -35,6 +36,10 @@ namespace Poker.API.Controllers
         /// <returns>Action result containing a collection of poker hands that win. Usually one hand but in case of a tie multiple will be returned. For each hand the details of the hand are returned including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [HttpGet(Name = "GetWinningPokerHands")]
         [ResponseCache(Duration = 120)]
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetWinningPokerHands(
         [FromRoute]
         [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
@@ -45,6 +50,12 @@ namespace Poker.API.Controllers
             }
 
             var pokerHandDtos = _pokerHandsService.GetWinningPokerHands(ids);
+
+            //check a winner was were retrieved
+            if (pokerHandDtos.Count() == 0)
+            {
+                return NotFound();
+            }
 
             return Ok(pokerHandDtos);
         }

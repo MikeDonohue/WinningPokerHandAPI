@@ -2,7 +2,7 @@
 
 What is this?
 
-A ASP.NET CORE Restful API that accepts requests containing poker hands, compares their hand strength and returns the winner.
+An ASP.NET CORE Restful API that accepts requests containing poker hands, compares their hand strength and returns the winner.
 
 
 What makes this API Restful?

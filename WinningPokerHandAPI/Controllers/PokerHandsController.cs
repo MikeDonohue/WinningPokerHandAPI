@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Poker.API.Helpers;
 using System.Dynamic;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace Poker.API.Controllers
 {
@@ -29,6 +30,7 @@ namespace Poker.API.Controllers
         [HttpGet(Name = "GetAllPokerHands")]
         [HttpHead]
         [ResponseCache(Duration = 120)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult GetAllPokerHands()
         {
             //get all poker hands currently saved in the db
@@ -60,6 +62,8 @@ namespace Poker.API.Controllers
         /// <returns>Action result containing the name of poker player and cards in hand.</returns>
         [HttpGet("{pokerHandId}", Name = "GetPokerHand")]
         [ResponseCache(Duration = 120)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetPokerHand(Guid pokerHandId)
         {
             //Get poker hand with given guid from the db.
@@ -84,6 +88,7 @@ namespace Poker.API.Controllers
         /// </summary>
         /// <param name="pokerHandDto">Poker player name and 5 cards in hand.</param>
         /// <returns>Action result containing the details of the hand successully saved on the server including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [HttpPost(Name = "CreatePokerHand")]
         public ActionResult<PokerHandDto> CreatePokerHand(PokerHandForCreationDto pokerHandDto)
         {

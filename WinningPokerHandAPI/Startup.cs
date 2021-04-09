@@ -52,7 +52,14 @@ namespace Poker.API
                     new Microsoft.OpenApi.Models.OpenApiInfo()
                     {
                         Title = "Poker API",
-                        Version = "1.0"
+                        Version = "1.0",
+                        Description = "API that accepts requests containing poker hands, compares their hand strength and returns the winner.",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        {
+                            Email = "mdonohue256@gmail.com",
+                            Name = "Michael Donohue",
+                            Url = new Uri("https://www.linkedin.com/in/michael-donohue/")
+                        }
                     });
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlCommentsFile));
