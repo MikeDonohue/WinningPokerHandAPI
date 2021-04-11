@@ -8,9 +8,11 @@ using Poker.API.Helpers;
 using System.Dynamic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace Poker.API.Controllers
 {
+    //This forces the use of attribute based routing
     [ApiController]
     [Route("pokerhands")]
     public class PokerHandsController : ControllerBase
@@ -31,10 +33,10 @@ namespace Poker.API.Controllers
         [HttpHead]
         [ResponseCache(Duration = 120)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult GetAllPokerHands()
+        public async Task<IActionResult> GetAllPokerHands()
         {
             //get all poker hands currently saved in the db
-            var savedHands = _pokerHandsService.GetAllPokerHands();
+            var savedHands = await _pokerHandsService.GetAllPokerHandsAsync();
 
             //Generate Links to return to consumer
             var shapedPokerHands = new List<ExpandoObject>();
@@ -54,6 +56,7 @@ namespace Poker.API.Controllers
             //return 200 status code
             return Ok(shapedPokerHandssWithLinks);
         }
+        
 
         /// <summary>
         /// Gets the poker hand.
@@ -64,10 +67,10 @@ namespace Poker.API.Controllers
         [ResponseCache(Duration = 120)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetPokerHand(Guid pokerHandId)
+        public async Task<IActionResult> GetPokerHand(Guid pokerHandId)
         {
             //Get poker hand with given guid from the db.
-            var savedHand = _pokerHandsService.GetPokerHand(pokerHandId);
+            var savedHand = await _pokerHandsService.GetPokerHandAsync(pokerHandId);
 
             //throws 404 if the poker hand guid requested is not present
             if (savedHand == null)
@@ -90,10 +93,10 @@ namespace Poker.API.Controllers
         /// <returns>Action result containing the details of the hand successully saved on the server including the id associated with this hand, poker player name, hand type, and 5 cards in hand.</returns>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [HttpPost(Name = "CreatePokerHand")]
-        public ActionResult<PokerHandDto> CreatePokerHand(PokerHandForCreationDto pokerHandDto)
+        public async Task<ActionResult<PokerHandDto>> CreatePokerHand(PokerHandForCreationDto pokerHandDto)
         {
             //Save Poker Hand to DB
-            var pokerHandCreated = _pokerHandsService.AddPokerHand(pokerHandDto);
+            var pokerHandCreated = await _pokerHandsService.AddPokerHandAsync(pokerHandDto);
 
             //Generate Links to return to consumer
             var linkedResourceToReturn = pokerHandCreated.ShapeData(null) as IDictionary<string, object>;

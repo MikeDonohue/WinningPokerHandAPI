@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Poker.API.Controllers
 {
@@ -36,7 +37,7 @@ namespace Poker.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetPokerHandCollection(
+        public async Task<IActionResult> GetPokerHandCollection(
         [FromRoute]
         [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
         {
@@ -47,7 +48,7 @@ namespace Poker.API.Controllers
             }
 
             //get poker hands from db
-            var pokerHandDtos = _pokerHandsService.GetPokerHands(ids);
+            var pokerHandDtos = await _pokerHandsService.GetPokerHandsAsync(ids);
 
             //check that the proper number of pokerhands were retrieved
             if (ids.Count() != pokerHandDtos.Count())
@@ -82,11 +83,11 @@ namespace Poker.API.Controllers
         /// 
         [ProducesResponseType(StatusCodes.Status201Created)]
         [HttpPost(Name="CreatePokerHandCollection")]
-        public ActionResult<IEnumerable<PokerHandDto>> CreatePokerHandCollection(
+        public async Task<ActionResult<IEnumerable<PokerHandDto>>> CreatePokerHandCollection(
             IEnumerable<PokerHandForCreationDto> pokerHandCollection)
         {
             //save pokerHands to DB
-            var pokerHandsCreated = _pokerHandsService.AddPokerHands(pokerHandCollection);
+            var pokerHandsCreated = await _pokerHandsService.AddPokerHandsAsync(pokerHandCollection);
             var idsAsString = string.Join(",", pokerHandsCreated.Select(a => a.Id));
 
             //Generate Links to return to consumer

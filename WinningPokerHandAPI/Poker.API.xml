@@ -157,7 +157,26 @@
             </summary>
             <returns>IEnumerable&lt;PokerHand&gt;.</returns>
         </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.GetPokerHandAsync(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>PokerHand.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.GetAllPokerHandsAsync">
+            <summary>
+            Gets all poker hands.
+            </summary>
+            <returns>IEnumerable&lt;PokerHand&gt;.</returns>
+        </member>
         <member name="M:Poker.API.Repositories.IPokerHandsRepository.Save">
+            <summary>
+            Saves this instance.
+            </summary>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.IPokerHandsRepository.SaveAsync">
             <summary>
             Saves this instance.
             </summary>
@@ -181,7 +200,7 @@
         </member>
         <member name="M:Poker.API.Repositories.PokerHandsRepository.AddPokerHand(Poker.API.DataObjects.Entities.PokerHand)">
             <summary>
-            Adds the poker hand.
+            Adds the poker hand. Shouldn't be async since adding something to the context isnt IO bound. Saving is though.
             </summary>
             <param name="pokerHand">The poker hand.</param>
             <returns>PokerHand.</returns>
@@ -200,6 +219,12 @@
             Gets all poker hands.
             </summary>
             <returns>Entity objects of all poker hands in the db.</returns>
+        </member>
+        <member name="M:Poker.API.Repositories.PokerHandsRepository.SaveAsync">
+            <summary>
+            Saves this instance.
+            </summary>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:Poker.API.Repositories.PokerHandsRepository.Save">
             <summary>
@@ -401,6 +426,33 @@
             <param name="pokerHandIds">The poker hand ids.</param>
             <returns>List of winning poker hands with provided ids. Can be more than one in case of a tie</returns>
         </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetPokerHandAsync(System.Guid)">
+            <summary>
+            Gets the poker hand.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>PokerHandDto of hand with provided Id</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetPokerHandsAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the poker hands.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>List of poker hands with provided ids</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetAllPokerHandsAsync">
+            <summary>
+            Gets all poker hands. Todo: add paging.
+            </summary>
+            <returns>List of all hands in Db.</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.GetWinningPokerHandsAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the winning poker hands.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>List of winning poker hands with provided ids. Can be more than one in case of a tie</returns>
+        </member>
         <member name="M:Poker.API.Services.IPokerHandsService.AddPokerHand(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
             <summary>
             Saves the poker hand to the db.
@@ -414,6 +466,20 @@
             </summary>
             <param name="pokerHandDtos">The poker hand dtos to save.</param>
             <returns>The poker hand dto that were saved to the db.</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.AddPokerHandAsync(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
+            <summary>
+            Adds the poker hand asynchronous.
+            </summary>
+            <param name="pokerHandDto">The poker hand dto.</param>
+            <returns>Task&lt;PokerHandDto&gt;.</returns>
+        </member>
+        <member name="M:Poker.API.Services.IPokerHandsService.AddPokerHandsAsync(System.Collections.Generic.IEnumerable{Poker.API.DataObjects.Dtos.PokerHandForCreationDto})">
+            <summary>
+            Adds the poker hands asynchronous.
+            </summary>
+            <param name="pokerHandDtos">The poker hand dtos.</param>
+            <returns>Task&lt;IEnumerable&lt;PokerHandDto&gt;&gt;.</returns>
         </member>
         <member name="T:Poker.API.Services.PokerHandsService">
             <summary>
@@ -459,6 +525,33 @@
             </summary>
             <returns>List of all hands in Db.</returns>
         </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetPokerHandAsync(System.Guid)">
+            <summary>
+            Get poker hand as an asynchronous operation.
+            </summary>
+            <param name="pokerHandId">The poker hand identifier.</param>
+            <returns>A Task&lt;PokerHandDto&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetPokerHandsAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Get poker hands as an asynchronous operation.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>A Task&lt;IEnumerable`1&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetWinningPokerHandsAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Get winning poker hands as an asynchronous operation.
+            </summary>
+            <param name="pokerHandIds">The poker hand ids.</param>
+            <returns>A Task&lt;IEnumerable`1&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.GetAllPokerHandsAsync">
+            <summary>
+            Gets all poker hands. Todo: add paging.
+            </summary>
+            <returns>List of all hands in Db.</returns>
+        </member>
         <member name="M:Poker.API.Services.PokerHandsService.AddPokerHand(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
             <summary>
             Saves the poker hand to the db.
@@ -469,6 +562,20 @@
         <member name="M:Poker.API.Services.PokerHandsService.AddPokerHands(System.Collections.Generic.IEnumerable{Poker.API.DataObjects.Dtos.PokerHandForCreationDto})">
             <summary>
             Saves the poker hands to the database.
+            </summary>
+            <param name="pokerHandDtos">The poker hand dtos to save.</param>
+            <returns>The poker hand dto that were saved to the db.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.AddPokerHandAsync(Poker.API.DataObjects.Dtos.PokerHandForCreationDto)">
+            <summary>
+            Add poker hand as an asynchronous operation.
+            </summary>
+            <param name="pokerHandDto">The poker hand dto.</param>
+            <returns>A Task&lt;PokerHandDto&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Poker.API.Services.PokerHandsService.AddPokerHandsAsync(System.Collections.Generic.IEnumerable{Poker.API.DataObjects.Dtos.PokerHandForCreationDto})">
+            <summary>
+            Add poker hands as an asynchronous operation.
             </summary>
             <param name="pokerHandDtos">The poker hand dtos to save.</param>
             <returns>The poker hand dto that were saved to the db.</returns>

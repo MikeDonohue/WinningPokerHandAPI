@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Poker.API.DbContexts;
 using Poker.API.DataObjects;
 using Poker.API.DataObjects.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Poker.API.Repositories
 {
@@ -17,7 +18,7 @@ namespace Poker.API.Repositories
     /// <seealso cref="System.IDisposable" />
     public class PokerHandsRepository : IPokerHandsRepository, IDisposable
     {
-        private readonly PokerHandsContext _context;
+        private PokerHandsContext _context;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PokerHandsRepository"/> class.
@@ -30,7 +31,7 @@ namespace Poker.API.Repositories
         }
 
         /// <summary>
-        /// Adds the poker hand.
+        /// Adds the poker hand. Shouldn't be async since adding something to the context isnt IO bound. Saving is though.
         /// </summary>
         /// <param name="pokerHand">The poker hand.</param>
         /// <returns>PokerHand.</returns>
@@ -47,8 +48,6 @@ namespace Poker.API.Repositories
             //Get current datetime
             pokerHand.DateCreated = DateTime.Now;
             _context.PokerHands.Add(pokerHand);
-            //save changes to db.
-            Save();
             return pokerHand;
         }
 
@@ -78,6 +77,32 @@ namespace Poker.API.Repositories
             return _context.PokerHands;
         }
 
+
+        public async Task<PokerHand> GetPokerHandAsync(Guid pokerHandId)
+        {
+            if (pokerHandId == Guid.Empty)
+            {
+                throw new ArgumentNullException(nameof(pokerHandId));
+            }
+
+            return await _context.PokerHands
+              .Where(c => c.Id == pokerHandId).FirstOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<PokerHand>> GetAllPokerHandsAsync()
+        {
+            return await _context.PokerHands.ToListAsync();
+        }
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public async Task<bool> SaveAsync()
+        {
+            return (await _context.SaveChangesAsync() >= 0);
+        }
+
         /// <summary>
         /// Saves this instance.
         /// </summary>
@@ -104,8 +129,13 @@ namespace Poker.API.Repositories
         {
             if (disposing)
             {
-                // dispose resources when needed
+               if(_context != null)
+                {
+                    _context.Dispose();
+                    _context = null;
+                }
             }
         }
+
     }
 }

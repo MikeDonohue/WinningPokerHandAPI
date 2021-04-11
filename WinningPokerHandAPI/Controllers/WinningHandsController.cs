@@ -40,7 +40,7 @@ namespace Poker.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetWinningPokerHands(
+        public async Task<IActionResult> GetWinningPokerHands(
         [FromRoute]
         [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
         {
@@ -49,7 +49,7 @@ namespace Poker.API.Controllers
                 return BadRequest();
             }
 
-            var pokerHandDtos = _pokerHandsService.GetWinningPokerHands(ids);
+            var pokerHandDtos = await _pokerHandsService.GetWinningPokerHandsAsync(ids);
 
             //check a winner was were retrieved
             if (pokerHandDtos.Count() == 0)

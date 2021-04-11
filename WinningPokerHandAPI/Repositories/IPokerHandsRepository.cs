@@ -33,9 +33,28 @@ namespace Poker.API.Repositories
         public IEnumerable<PokerHand> GetAllPokerHands();
 
         /// <summary>
+        /// Gets the poker hand.
+        /// </summary>
+        /// <param name="pokerHandId">The poker hand identifier.</param>
+        /// <returns>PokerHand.</returns>
+        public Task<PokerHand> GetPokerHandAsync(Guid pokerHandId);
+
+        /// <summary>
+        /// Gets all poker hands.
+        /// </summary>
+        /// <returns>IEnumerable&lt;PokerHand&gt;.</returns>
+        public Task<IEnumerable<PokerHand>> GetAllPokerHandsAsync();
+
+        /// <summary>
         /// Saves this instance.
         /// </summary>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool Save();
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public Task<bool> SaveAsync();
     }
 }

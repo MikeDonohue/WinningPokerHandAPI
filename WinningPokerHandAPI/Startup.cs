@@ -33,12 +33,19 @@ namespace Poker.API
         {
             services.AddControllers();
 
+            //scans for classes that inherit from profile. Pass in the assembles so it knows where to look.
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            
             services.AddScoped<IPokerHandsService, PokerHandsService>();
 
             services.AddScoped<IPokerHandsRepository, PokerHandsRepository>();
 
+            //why is this automatically registered with a scoped lifetime.
+            //ensures the db context is disposed of after everyrequest.
+            //replaces our old fasioned using statement in .net framework
+            //since this is used by our repositories they have to be registered with a
+            //context that is equal to or shorter than the db context scope
             services.AddDbContext<PokerHandsContext>(options =>
             {
                 options.UseSqlServer(

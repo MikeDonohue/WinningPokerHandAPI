@@ -37,6 +37,7 @@ namespace Poker.API.Services
                 throw new ArgumentNullException(nameof(pokerHandsRepository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
+            //probsbly should have handled these through dependency injection for all the reasons we've talked about.
             _handTypeCalculator = new HandTypeCalculator();
             _handComparer = new HandComparer();
         }
@@ -92,6 +93,61 @@ namespace Poker.API.Services
         {
             return _mapper.Map<IEnumerable<PokerHandDto>>(_pokerHandsRepository.GetAllPokerHands());
         }
+
+        #endregion
+
+        #region async get methods        
+        /// <summary>
+        /// Get poker hand as an asynchronous operation.
+        /// </summary>
+        /// <param name="pokerHandId">The poker hand identifier.</param>
+        /// <returns>A Task&lt;PokerHandDto&gt; representing the asynchronous operation.</returns>
+        public async Task<PokerHandDto> GetPokerHandAsync(Guid pokerHandId)
+        {
+            var pokerHandToReturn = await _pokerHandsRepository.GetPokerHandAsync(pokerHandId);
+            return _mapper.Map<DataObjects.Dtos.PokerHandDto>(pokerHandToReturn);
+        }
+
+
+        /// <summary>
+        /// Get poker hands as an asynchronous operation.
+        /// </summary>
+        /// <param name="pokerHandIds">The poker hand ids.</param>
+        /// <returns>A Task&lt;IEnumerable`1&gt; representing the asynchronous operation.</returns>
+        public async Task<IEnumerable<PokerHandDto>> GetPokerHandsAsync(IEnumerable<Guid> pokerHandIds)
+        {
+            List<PokerHandDto> handsToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandId in pokerHandIds)
+            {
+                handsToReturn.Add(await GetPokerHandAsync(pokerHandId));
+            }
+            return handsToReturn;
+        }
+
+        /// <summary>
+        /// Get winning poker hands as an asynchronous operation.
+        /// </summary>
+        /// <param name="pokerHandIds">The poker hand ids.</param>
+        /// <returns>A Task&lt;IEnumerable`1&gt; representing the asynchronous operation.</returns>
+        public async Task<IEnumerable<PokerHandDto>> GetWinningPokerHandsAsync(IEnumerable<Guid> pokerHandIds)
+        {
+            List<PokerHandDto> handsToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandId in pokerHandIds)
+            {
+                handsToReturn.Add(await GetPokerHandAsync(pokerHandId));
+            }
+            handsToReturn = _handComparer.GetWinningHand(handsToReturn);
+            return handsToReturn;
+        }
+
+        /// <summary>
+        /// Gets all poker hands. Todo: add paging.
+        /// </summary>
+        /// <returns>List of all hands in Db.</returns>
+        public async Task<IEnumerable<PokerHandDto>> GetAllPokerHandsAsync()
+        {
+            return _mapper.Map<IEnumerable<PokerHandDto>>(await _pokerHandsRepository.GetAllPokerHandsAsync());
+        }
         #endregion
 
         #region Add Methods        
@@ -106,6 +162,7 @@ namespace Poker.API.Services
             //Add call to determine card type
             pokerHandToAdd.Type = _handTypeCalculator.GetHandType(pokerHandToAdd).Name;
             _pokerHandsRepository.AddPokerHand(pokerHandToAdd);
+            _pokerHandsRepository.Save();
             var pokerDtoToReturn = _mapper.Map<PokerHandDto>(pokerHandToAdd);
             return pokerDtoToReturn;
         }
@@ -122,18 +179,51 @@ namespace Poker.API.Services
             {
                 pokerHandDtosToReturn.Add(AddPokerHand(pokerHandDto));
             }
+            _pokerHandsRepository.Save();
+            return pokerHandDtosToReturn;
+        }
+        #endregion
+
+        #region ASync Add Methods                
+        /// <summary>
+        /// Add poker hand as an asynchronous operation.
+        /// </summary>
+        /// <param name="pokerHandDto">The poker hand dto.</param>
+        /// <returns>A Task&lt;PokerHandDto&gt; representing the asynchronous operation.</returns>
+        public async Task<PokerHandDto> AddPokerHandAsync(PokerHandForCreationDto pokerHandDto)
+        {
+            var pokerHandToAdd = _mapper.Map<PokerHand>(pokerHandDto);
+            //Add call to determine card type
+            pokerHandToAdd.Type = _handTypeCalculator.GetHandType(pokerHandToAdd).Name;
+            _pokerHandsRepository.AddPokerHand(pokerHandToAdd);
+            await _pokerHandsRepository.SaveAsync();
+            var pokerDtoToReturn = _mapper.Map<PokerHandDto>(pokerHandToAdd);
+            return pokerDtoToReturn;
+        }
+
+        /// <summary>
+        /// Add poker hands as an asynchronous operation.
+        /// </summary>
+        /// <param name="pokerHandDtos">The poker hand dtos to save.</param>
+        /// <returns>The poker hand dto that were saved to the db.</returns>
+        public async Task<IEnumerable<PokerHandDto>> AddPokerHandsAsync(IEnumerable<PokerHandForCreationDto> pokerHandDtos)
+        {
+            List<PokerHandDto> pokerHandDtosToReturn = new List<PokerHandDto>();
+            foreach (var pokerHandDto in pokerHandDtos)
+            {
+                pokerHandDtosToReturn.Add(AddPokerHand(pokerHandDto));
+            }
+            await _pokerHandsRepository.SaveAsync();
             return pokerHandDtosToReturn;
         }
         #endregion
 
 
 
-        
 
-        
 
-        
 
-        
-    }
+
+
+    } 
 }
