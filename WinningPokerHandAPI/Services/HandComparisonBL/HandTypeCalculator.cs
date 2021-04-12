@@ -34,35 +34,15 @@ namespace Poker.API.Services.HandComparisonBL
 
             List<Card> cardsInHand = GetListOfCardsFromHand(hand);
 
-            //check if hand is Straight or flush
+            //check if hand is Straight
             bool isHandStraight = IsHandStraight(cardsInHand);
+            //check if hand is flush
             bool isHandFlush = IsHandFlush(cardsInHand);
 
             //check is hand straight flush
             if (isHandStraight && isHandFlush)
             {
                 return _handTypes.GetHandTypeByTypeName("Straight Flush");
-            }
-
-            //Get list of card frequencies
-            List<CardFrequency> repeatedHandRankList = new CardFrequencyList().GetCardFrequencyList(cardsInHand);
-
-            //check for quads
-            var quads = repeatedHandRankList.Where(cr => cr.Frequency == 4).FirstOrDefault();
-            if (quads != null) {
-                return _handTypes.GetHandTypeByTypeName("Four of a Kind");
-            }
-
-            //check for trips
-            var trips = repeatedHandRankList.Where(cr => cr.Frequency == 3).FirstOrDefault();
-            if (trips != null)
-            {
-                //check for full house
-                var pairNeededForBoat = repeatedHandRankList.Where(cr => cr.Frequency == 2).FirstOrDefault();
-                if (pairNeededForBoat != null)
-                {
-                    return _handTypes.GetHandTypeByTypeName("Full House");
-                }
             }
 
             //return if flush
@@ -75,6 +55,27 @@ namespace Poker.API.Services.HandComparisonBL
             if (isHandStraight)
             {
                 return _handTypes.GetHandTypeByTypeName("Straight");
+            }
+
+            //Get list of card frequencies
+            List<CardFrequency> repeatedHandRankList = new CardFrequencyList().GetCardFrequencyList(cardsInHand);
+
+            //check for quads
+            var quads = repeatedHandRankList.Where(cr => cr.Frequency == 4).FirstOrDefault();
+            if (quads != null) {
+                return _handTypes.GetHandTypeByTypeName("Four of a Kind");
+            }
+
+            //check for full house
+            var trips = repeatedHandRankList.Where(cr => cr.Frequency == 3).FirstOrDefault();
+            if (trips != null)
+            {
+                //check for full house
+                var pairNeededForBoat = repeatedHandRankList.Where(cr => cr.Frequency == 2).FirstOrDefault();
+                if (pairNeededForBoat != null)
+                {
+                    return _handTypes.GetHandTypeByTypeName("Full House");
+                }
             }
 
             //check for trips
