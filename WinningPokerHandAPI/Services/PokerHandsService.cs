@@ -37,7 +37,7 @@ namespace Poker.API.Services
                 throw new ArgumentNullException(nameof(pokerHandsRepository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
-            //probsbly should have handled these through dependency injection for all the reasons we've talked about.
+            //should have handled these through dependency injection origionally.
             _handTypeCalculator = new HandTypeCalculator();
             _handComparer = new HandComparer();
         }

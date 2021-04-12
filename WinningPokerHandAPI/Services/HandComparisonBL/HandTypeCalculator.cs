@@ -34,7 +34,7 @@ namespace Poker.API.Services.HandComparisonBL
 
             List<Card> cardsInHand = GetListOfCardsFromHand(hand);
 
-            //check if hand is Straight
+            //check if hand is Straight or flush
             bool isHandStraight = IsHandStraight(cardsInHand);
             bool isHandFlush = IsHandFlush(cardsInHand);
 
@@ -53,7 +53,7 @@ namespace Poker.API.Services.HandComparisonBL
                 return _handTypes.GetHandTypeByTypeName("Four of a Kind");
             }
 
-            //check for full house
+            //check for trips
             var trips = repeatedHandRankList.Where(cr => cr.Frequency == 3).FirstOrDefault();
             if (trips != null)
             {
@@ -66,14 +66,12 @@ namespace Poker.API.Services.HandComparisonBL
             }
 
             //return if flush
-            //check is hand straight flush
             if (isHandFlush)
             {
                 return _handTypes.GetHandTypeByTypeName("Flush");
             }
 
-            //return if flush
-            //check is hand straight flush
+            //return if straight
             if (isHandStraight)
             {
                 return _handTypes.GetHandTypeByTypeName("Straight");
