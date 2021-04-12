@@ -36,12 +36,25 @@ namespace Poker.API.Services.HandComparisonBL
 
             //check if hand is Straight
             bool isHandStraight = IsHandStraight(cardsInHand);
+            //check if hand is flush
             bool isHandFlush = IsHandFlush(cardsInHand);
 
             //check is hand straight flush
             if (isHandStraight && isHandFlush)
             {
                 return _handTypes.GetHandTypeByTypeName("Straight Flush");
+            }
+
+            //return if flush
+            if (isHandFlush)
+            {
+                return _handTypes.GetHandTypeByTypeName("Flush");
+            }
+
+            //return if straight
+            if (isHandStraight)
+            {
+                return _handTypes.GetHandTypeByTypeName("Straight");
             }
 
             //Get list of card frequencies
@@ -63,20 +76,6 @@ namespace Poker.API.Services.HandComparisonBL
                 {
                     return _handTypes.GetHandTypeByTypeName("Full House");
                 }
-            }
-
-            //return if flush
-            //check is hand straight flush
-            if (isHandFlush)
-            {
-                return _handTypes.GetHandTypeByTypeName("Flush");
-            }
-
-            //return if flush
-            //check is hand straight flush
-            if (isHandStraight)
-            {
-                return _handTypes.GetHandTypeByTypeName("Straight");
             }
 
             //check for trips

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "992c389c-856b-4105-867d-90273f2b9274",
+		"_postman_id": "c052ca4d-9e7d-41c2-a2b4-096bf0c307c6",
 		"name": "WorkingPokerAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -20,15 +20,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"raw": "http://localhost:63349/pokerhandcollections/(55744fa9-4334-4e2e-a1ff-70360dd025f7,82029ec5-4331-44f3-b73f-8ecc10826b92,659cf963-4dbd-4053-834f-440ccc402095)/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "63349",
 							"path": [
-								"pokerhands",
-								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+								"pokerhandcollections",
+								"(55744fa9-4334-4e2e-a1ff-70360dd025f7,82029ec5-4331-44f3-b73f-8ecc10826b92,659cf963-4dbd-4053-834f-440ccc402095)",
+								""
 							]
 						}
 					},
@@ -46,15 +47,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"raw": "http://localhost:63349/pokerhandcollections/(55744fa9-4334-4e2e-a1ff-70360dd025f7,82029ec5-4331-44f3-b73f-8ecc10826b92,659cf963-4dbd-4053-834f-440ccc402095)/winninghands",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "63349",
 							"path": [
-								"pokerhands",
-								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+								"pokerhandcollections",
+								"(55744fa9-4334-4e2e-a1ff-70360dd025f7,82029ec5-4331-44f3-b73f-8ecc10826b92,659cf963-4dbd-4053-834f-440ccc402095)",
+								"winninghands"
 							]
 						}
 					},
@@ -77,15 +79,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"raw": "http://localhost:63349/pokerhandcollections/(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "63349",
 							"path": [
-								"pokerhands",
-								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+								"pokerhandcollections",
+								"(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)",
+								""
 							]
 						}
 					},
@@ -103,15 +106,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"raw": "http://localhost:63349/pokerhandcollections/(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)/winninghands",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "63349",
 							"path": [
-								"pokerhands",
-								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+								"pokerhandcollections",
+								"(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)",
+								"winninghands"
 							]
 						}
 					},
@@ -134,15 +138,16 @@
 							}
 						],
 						"url": {
-							"raw": "https://localhost:44395/pokerhandcollections/(93767f99-7c0a-44af-9930-93ad5e323021,9611fc8d-956e-462a-b1b7-1c30f6cc601d)",
-							"protocol": "https",
+							"raw": "http://localhost:63349/pokerhandcollections/(9611fc8d-956e-462a-b1b7-1c30f6cc601d,93767f99-7c0a-44af-9930-93ad5e323021)/",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "44395",
+							"port": "63349",
 							"path": [
 								"pokerhandcollections",
-								"(93767f99-7c0a-44af-9930-93ad5e323021,9611fc8d-956e-462a-b1b7-1c30f6cc601d)"
+								"(9611fc8d-956e-462a-b1b7-1c30f6cc601d,93767f99-7c0a-44af-9930-93ad5e323021)",
+								""
 							]
 						}
 					},
@@ -160,15 +165,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"raw": "http://localhost:63349/pokerhandcollections/(9611fc8d-956e-462a-b1b7-1c30f6cc601d,93767f99-7c0a-44af-9930-93ad5e323021)/winninghands",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "63349",
 							"path": [
-								"pokerhands",
-								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+								"pokerhandcollections",
+								"(9611fc8d-956e-462a-b1b7-1c30f6cc601d,93767f99-7c0a-44af-9930-93ad5e323021)",
+								"winninghands"
 							]
 						}
 					},
@@ -191,15 +197,16 @@
 							}
 						],
 						"url": {
-							"raw": "https://localhost:44395/pokerhandcollections/(655861ee-8a2d-4e8b-9d43-34b050150f11,5a8222f5-114a-4fd0-b7fb-f28b40796b2e)",
-							"protocol": "https",
+							"raw": "http://localhost:63349/pokerhandcollections/(5a8222f5-114a-4fd0-b7fb-f28b40796b2e,655861ee-8a2d-4e8b-9d43-34b050150f11)/",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "44395",
+							"port": "63349",
 							"path": [
 								"pokerhandcollections",
-								"(655861ee-8a2d-4e8b-9d43-34b050150f11,5a8222f5-114a-4fd0-b7fb-f28b40796b2e)"
+								"(5a8222f5-114a-4fd0-b7fb-f28b40796b2e,655861ee-8a2d-4e8b-9d43-34b050150f11)",
+								""
 							]
 						}
 					},
@@ -217,15 +224,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+							"raw": "http://localhost:63349/pokerhandcollections/(5a8222f5-114a-4fd0-b7fb-f28b40796b2e,655861ee-8a2d-4e8b-9d43-34b050150f11)/winninghands",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "63349",
 							"path": [
-								"pokerhands",
-								"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+								"pokerhandcollections",
+								"(5a8222f5-114a-4fd0-b7fb-f28b40796b2e,655861ee-8a2d-4e8b-9d43-34b050150f11)",
+								"winninghands"
 							]
 						}
 					},
@@ -245,7 +253,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"raw": "http://localhost:63349/pokerhands/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -253,7 +261,7 @@
 					"port": "63349",
 					"path": [
 						"pokerhands",
-						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+						""
 					]
 				}
 			},
@@ -271,7 +279,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"raw": "http://localhost:63349/pokerhands/18888494-243a-4293-b1b2-364c5fade6fa",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -279,7 +287,7 @@
 					"port": "63349",
 					"path": [
 						"pokerhands",
-						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+						"18888494-243a-4293-b1b2-364c5fade6fa"
 					]
 				}
 			},
@@ -301,7 +309,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KS\",\n    \"card3\": \"10S\",\n    \"card4\": \"JS\",\n    \"card5\": \"QS\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -365,7 +373,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"2D\",\n    \"card4\": \"2C\",\n    \"card5\": \"2S\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -397,7 +405,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AD\",\n    \"card2\": \"2D\",\n    \"card3\": \"5D\",\n    \"card4\": \"7D\",\n    \"card5\": \"10D\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -429,7 +437,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"AD\",\n    \"card4\": \"AC\",\n    \"card5\": \"2D\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"6S\",\n    \"card2\": \"7H\",\n    \"card3\": \"5D\",\n    \"card4\": \"4C\",\n    \"card5\": \"8D\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -461,7 +469,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"QS\",\n    \"card4\": \"QC\",\n    \"card5\": \"QD\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -493,7 +501,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"AH\",\n    \"card3\": \"JD\",\n    \"card4\": \"JC\",\n    \"card5\": \"QD\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -525,7 +533,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"3H\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -589,7 +597,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "{\n\t\"playerName\" : \"\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -621,7 +629,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"AS\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -653,7 +661,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AQ\",\n    \"card2\": \"KH\",\n    \"card3\": \"ZD\",\n    \"card4\": \"10C\",\n    \"card5\": \"\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:63349/pokerhands",
@@ -704,15 +712,15 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"raw": "http://localhost:63349/pokerhandcollections/(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "63349",
 					"path": [
-						"pokerhands",
-						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+						"pokerhandcollections",
+						"(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)"
 					]
 				}
 			},
@@ -730,15 +738,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:63349/pokerhands/d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+					"raw": "http://localhost:63349/pokerhandcollections/(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)/winninghands",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "63349",
 					"path": [
-						"pokerhands",
-						"d28888e9-2ba9-473a-a40f-e38cb54f9b35"
+						"pokerhandcollections",
+						"(4d42a8e7-c322-4dd5-9b0e-444600da70d4,9051d0d7-6a10-4c23-8b67-1f48fe798a1d)",
+						"winninghands"
 					]
 				}
 			},
@@ -760,17 +769,18 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n}"
+					"raw": "[{\n\t\"playerName\" : \"Mike D\",\n    \"card1\": \"AS\",\n    \"card2\": \"KH\",\n    \"card3\": \"JD\",\n    \"card4\": \"10C\",\n    \"card5\": \"QD\"\n},\n{\n\t\"playerName\" : \"Ken J\",\n    \"card1\": \"AS\",\n    \"card2\": \"5H\",\n    \"card3\": \"JD\",\n    \"card4\": \"5C\",\n    \"card5\": \"QD\"\n}]"
 				},
 				"url": {
-					"raw": "http://localhost:63349/pokerhands",
+					"raw": "http://localhost:63349/pokerhandcollections/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "63349",
 					"path": [
-						"pokerhands"
+						"pokerhandcollections",
+						""
 					]
 				}
 			},
