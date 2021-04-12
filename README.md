@@ -22,6 +22,8 @@ My api is seperated into three layers.
 - Servies that perform business logic.
 - Repositories that interact with the database.
 
+Clients who interact with this API only have knowledge of the outterfacing layer despite the fact that the app is composed of multiple.
+
 Caching:
 Basic caching implemented. Can be improved via use of etags.
 
