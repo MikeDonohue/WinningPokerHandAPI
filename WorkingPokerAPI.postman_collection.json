@@ -65,7 +65,7 @@
 			]
 		},
 		{
-			"name": "StraightFlush Vs Flush",
+			"name": "StraightFlush Vs Straight",
 			"item": [
 				{
 					"name": "GET pokerhandcollection",
